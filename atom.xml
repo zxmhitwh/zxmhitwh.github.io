@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-08T07:02:10.000Z</updated>
+  <updated>2016-07-08T09:18:09.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用标注语料生成决策weights</title>
+    <link href="http://yoursite.com/2016/07/05/%E5%88%A9%E7%94%A8%E6%A0%87%E6%B3%A8%E8%AF%AD%E6%96%99%E7%94%9F%E6%88%90%E5%86%B3%E7%AD%96weights/"/>
+    <id>http://yoursite.com/2016/07/05/利用标注语料生成决策weights/</id>
+    <published>2016-07-04T16:00:00.000Z</published>
+    <updated>2016-07-08T09:18:09.000Z</updated>
+    
+    <content type="html">&lt;p&gt;1、之前两周利用主动学习的方式训练集&lt;br&gt;2、标注数据分离一小部分作为测试集利用LR分类器调参。&lt;br&gt;3、利用最有参数训练标注语料生成特征权重weights。&lt;br&gt;3、使用weights获得主干提取demo。&lt;br&gt;周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想&lt;br&gt;分析原因：训练集过少、覆盖面过窄、稳定性不高&lt;br&gt;这周的主要工作：&lt;br&gt;1、提取多种语料库中的资源做人工语料标注&lt;br&gt;2、增加部分特征，扩大特征维度&lt;br&gt;3、特征结构统一化，例如某个词的特征用词典表示，预定义好所有的key。暂时定义如下：&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;列表内容&lt;/li&gt;
+&lt;li&gt;word_0  当前词本身&lt;/li&gt;
+&lt;li&gt;pos_0  当前词本身词性&lt;/li&gt;
+&lt;li&gt;cluster_0 当前词本身聚类编号&lt;/li&gt;
+&lt;li&gt;word_-1  当前词的前一个词本身&lt;/li&gt;
+&lt;li&gt;pos_-1   当前词的前一个词词性&lt;/li&gt;
+&lt;li&gt;cluster_-1   当前词的前一个词聚类编号&lt;/li&gt;
+&lt;li&gt;word_1   当前词的后一个词本身&lt;/li&gt;
+&lt;li&gt;pos_1    当前词的后一个词词性&lt;/li&gt;
+&lt;li&gt;cluster_1   当前词的后一个词聚类编号&lt;/li&gt;
+&lt;li&gt;parent_edge_0   当前词的父边关系类型&lt;/li&gt;
+&lt;li&gt;child_edge_0   当前词的子边关系类型&lt;/li&gt;
+&lt;li&gt;word_parent_node_0   当前词的父节点词本身&lt;/li&gt;
+&lt;li&gt;pos_parent_node_0  当前词的父节点词性&lt;/li&gt;
+&lt;li&gt;cluster_parent_node_0 当前词的父节点词聚类编号&lt;/li&gt;
+&lt;li&gt;word_parent&lt;em&gt;node&lt;/em&gt;-1   当前词的前一个词的父节点词本身&lt;/li&gt;
+&lt;li&gt;pos_parent&lt;em&gt;node&lt;/em&gt;-1  当前词的前一个词的父节点词性&lt;/li&gt;
+&lt;li&gt;cluster_parent&lt;em&gt;node&lt;/em&gt;-1 当前词的前一个词的父节点词聚类编号&lt;/li&gt;
+&lt;li&gt;word_parent_node_1   当前词的后一个词的父节点词本身&lt;/li&gt;
+&lt;li&gt;pos_parent_node_1  当前词的后一个词的父节点词性&lt;/li&gt;
+&lt;li&gt;cluster_parent_node_1 当前词的后一个词的父节点词聚类编号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;计划下周：&lt;br&gt;把句子主干提取完善版本完成。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1、之前两周利用主动学习的方式训练集&lt;br&gt;2、标注数据分离一小部分作为测试集利用LR分类器调参。&lt;br&gt;3、利用最有参数训练标注语料生成特征权重weights。&lt;br&gt;3、使用weights获得主干提取demo。&lt;br&gt;周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想&lt;br&gt;分析原因：训练集过少、覆盖面过窄、稳定性不高&lt;br&gt;这周的主要工作：&lt;br&gt;1、提取多种语料库中的资源做人工语料标注&lt;br&gt;2、增加部分特征，扩大特征维度&lt;br&gt;3、特征结构统一化，例如某个词的特征用词典表示，预定义好所有的key。暂时定义如下：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="句子主干提取" scheme="http://yoursite.com/categories/%E5%8F%A5%E5%AD%90%E4%B8%BB%E5%B9%B2%E6%8F%90%E5%8F%96/"/>
+    
+    
+      <category term="逻辑回归" scheme="http://yoursite.com/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    
+      <category term="主动学习" scheme="http://yoursite.com/tags/%E4%B8%BB%E5%8A%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过主动学习的方法进行自动语料标注</title>
+    <link href="http://yoursite.com/2016/06/24/%E9%80%9A%E8%BF%87%E4%B8%BB%E5%8A%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E8%AF%AD%E6%96%99%E6%A0%87%E6%B3%A8/"/>
+    <id>http://yoursite.com/2016/06/24/通过主动学习的方法进行自动语料标注/</id>
+    <published>2016-06-23T16:00:00.000Z</published>
+    <updated>2016-07-08T10:50:19.000Z</updated>
+    
+    <content type="html">&lt;p&gt;   目前正在做句子主干提取方面的工作，主要方法是构建二分类器，提取句子分词之后每个词的特征来决定分词的取舍。由于需要标注大量的训练语料，采用人工的方法费时费力，于是采用主动学习的方法实现语料标注，我实现的步骤如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先对语料实现人工标注一部分&lt;/li&gt;
+&lt;li&gt;使用机器学习训练模型如SVM、LR对已经标注的语料训练，把为标注的语料作为测试集&lt;/li&gt;
+&lt;li&gt;为测试机样本产生标签及置信度（即标签的准确性的概率值）&lt;/li&gt;
+&lt;li&gt;通过观察为置信度设定一个阈值，当样本中的每个分词都满足这个阈值时，我们把这个自动标注好的测试样本加入到训练集中，在测试样本中取出这个样本&lt;/li&gt;
+&lt;li&gt;重复2-4步，直到剩余的测试样本中没有完全满足阈值的&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;输出剩余的测试样本&lt;/p&gt;
+&lt;p&gt; 刚开始我觉得这种方法非常好，经过测试，大概20次迭代之后大概4/5的样本已经标注好了&lt;br&gt;经过导师指导发现这种方法并不可靠，因为你新添加的训练集也是之前训练集产生的，反复迭代只会过拟合。我们应该设定一个比较低的阈值，找到测试集中非常不确定的测试样本（所有这些测试样本的置信度很低），通常来说这些样本是最有“价值”的样本，我们对这一小部分采用人工标注，并放入到训练集中，反复几次。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;   目前正在做句子主干提取方面的工作，主要方法是构建二分类器，提取句子分词之后每个词的特征来决定分词的取舍。由于需要标注大量的训练语料，采用人工的方法费时费力，于是采用主动学习的方法实现语料标注，我实现的步骤如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先对语料实现人工标注一部分&lt;/
+    
+    </summary>
+    
+      <category term="句子主干提取" scheme="http://yoursite.com/categories/%E5%8F%A5%E5%AD%90%E4%B8%BB%E5%B9%B2%E6%8F%90%E5%8F%96/"/>
+    
+    
+      <category term="逻辑回归" scheme="http://yoursite.com/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    
+      <category term="主动学习" scheme="http://yoursite.com/tags/%E4%B8%BB%E5%8A%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>Pagerank算法的具体实现</title>

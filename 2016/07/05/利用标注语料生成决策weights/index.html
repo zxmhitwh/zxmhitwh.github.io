@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="逻辑回归,主动学习," />
 
 
 
@@ -104,15 +104,16 @@
 
 
 
-<meta name="description" content="心之所向,四海归一">
-<meta property="og:type" content="website">
-<meta property="og:title" content=" John's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="1、之前两周利用主动学习的方式训练集2、标注数据分离一小部分作为测试集利用LR分类器调参。3、利用最有参数训练标注语料生成特征权重weights。3、使用weights获得主干提取demo。周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想分析原因：训练集过少、覆盖面过窄、稳定性不高这周的主要工作：1、提取多种语料库中的资源做人工语料标注2、增加部分特征，扩大特征维度3、特征结构统一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用标注语料生成决策weights">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/利用标注语料生成决策weights/index.html">
 <meta property="og:site_name" content=" John's Blog">
-<meta property="og:description" content="心之所向,四海归一">
+<meta property="og:description" content="1、之前两周利用主动学习的方式训练集2、标注数据分离一小部分作为测试集利用LR分类器调参。3、利用最有参数训练标注语料生成特征权重weights。3、使用weights获得主干提取demo。周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想分析原因：训练集过少、覆盖面过窄、稳定性不高这周的主要工作：1、提取多种语料库中的资源做人工语料标注2、增加部分特征，扩大特征维度3、特征结构统一">
+<meta property="og:updated_time" content="2016-07-08T09:18:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" John's Blog">
-<meta name="twitter:description" content="心之所向,四海归一">
+<meta name="twitter:title" content="利用标注语料生成决策weights">
+<meta name="twitter:description" content="1、之前两周利用主动学习的方式训练集2、标注数据分离一小部分作为测试集利用LR分类器调参。3、利用最有参数训练标注语料生成特征权重weights。3、使用weights获得主干提取demo。周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想分析原因：训练集过少、覆盖面过窄、稳定性不高这周的主要工作：1、提取多种语料库中的资源做人工语料标注2、增加部分特征，扩大特征维度3、特征结构统一">
 
 
 
@@ -133,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/05/利用标注语料生成决策weights/"/>
 
-  <title> 归档 |  John's Blog </title>
+  <title> 利用标注语料生成决策weights |  John's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +157,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,177 +255,174 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 4 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/05/利用标注语料生成决策weights/" itemprop="url">
-              
-                <span itemprop="name">利用标注语料生成决策weights</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-05T00:00:00+08:00"
-              content="2016-07-05" >
-          07-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/24/通过主动学习的方法进行自动语料标注/" itemprop="url">
-              
-                <span itemprop="name">通过主动学习的方法进行自动语料标注</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-24T00:00:00+08:00"
-              content="2016-06-24" >
-          06-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/19/pagerank算法的具体实现/" itemprop="url">
-              
-                <span itemprop="name">Pagerank算法的具体实现</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-19T00:00:00+08:00"
-              content="2016-06-19" >
-          06-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/15/单链表反转问题/" itemprop="url">
-              
-                <span itemprop="name">单链表反转问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-15T00:00:00+08:00"
-              content="2016-06-15" >
-          06-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用标注语料生成决策weights
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T00:00:00+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/句子主干提取/" itemprop="url" rel="index">
+                    <span itemprop="name">句子主干提取</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/05/利用标注语料生成决策weights/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/利用标注语料生成决策weights/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1、之前两周利用主动学习的方式训练集<br>2、标注数据分离一小部分作为测试集利用LR分类器调参。<br>3、利用最有参数训练标注语料生成特征权重weights。<br>3、使用weights获得主干提取demo。<br>周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想<br>分析原因：训练集过少、覆盖面过窄、稳定性不高<br>这周的主要工作：<br>1、提取多种语料库中的资源做人工语料标注<br>2、增加部分特征，扩大特征维度<br>3、特征结构统一化，例如某个词的特征用词典表示，预定义好所有的key。暂时定义如下：</p>
+<a id="more"></a>
+<ul>
+<li>列表内容</li>
+<li>word_0  当前词本身</li>
+<li>pos_0  当前词本身词性</li>
+<li>cluster_0 当前词本身聚类编号</li>
+<li>word_-1  当前词的前一个词本身</li>
+<li>pos_-1   当前词的前一个词词性</li>
+<li>cluster_-1   当前词的前一个词聚类编号</li>
+<li>word_1   当前词的后一个词本身</li>
+<li>pos_1    当前词的后一个词词性</li>
+<li>cluster_1   当前词的后一个词聚类编号</li>
+<li>parent_edge_0   当前词的父边关系类型</li>
+<li>child_edge_0   当前词的子边关系类型</li>
+<li>word_parent_node_0   当前词的父节点词本身</li>
+<li>pos_parent_node_0  当前词的父节点词性</li>
+<li>cluster_parent_node_0 当前词的父节点词聚类编号</li>
+<li>word_parent<em>node</em>-1   当前词的前一个词的父节点词本身</li>
+<li>pos_parent<em>node</em>-1  当前词的前一个词的父节点词性</li>
+<li>cluster_parent<em>node</em>-1 当前词的前一个词的父节点词聚类编号</li>
+<li>word_parent_node_1   当前词的后一个词的父节点词本身</li>
+<li>pos_parent_node_1  当前词的后一个词的父节点词性</li>
+<li>cluster_parent_node_1 当前词的后一个词的父节点词聚类编号</li>
+</ul>
+<p>计划下周：<br>把句子主干提取完善版本完成。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/逻辑回归/" rel="tag">#逻辑回归</a>
+          
+            <a href="/tags/主动学习/" rel="tag">#主动学习</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/24/通过主动学习的方法进行自动语料标注/" rel="next" title="通过主动学习的方法进行自动语料标注">
+                <i class="fa fa-chevron-left"></i> 通过主动学习的方法进行自动语料标注
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -432,6 +430,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/05/利用标注语料生成决策weights/"
+           data-title="利用标注语料生成决策weights" data-url="http://yoursite.com/2016/07/05/利用标注语料生成决策weights/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -451,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/timg.png"
@@ -548,6 +563,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -642,11 +668,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
