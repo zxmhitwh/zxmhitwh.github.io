@@ -48,7 +48,7 @@
     <link href="http://yoursite.com/2016/05/03/%E5%8D%95%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2016/05/03/单链表反转问题/</id>
     <published>2016-05-02T16:10:34.000Z</published>
-    <updated>2016-05-02T14:05:04.000Z</updated>
+    <updated>2016-07-08T06:44:07.000Z</updated>
     
     <content type="html">&lt;p&gt;题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。&lt;/p&gt;
 &lt;h3 id=&quot;1、非递归方式实现&quot;&gt;&lt;a href=&quot;#1、非递归方式实现&quot; class=&quot;headerlink&quot; title=&quot;1、非递归方式实现&quot;&gt;&lt;/a&gt;1、非递归方式实现&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ListNode * ReverseList(ListNode *  head)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   //如果链表为空或者链表中只有一个元素  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   if(head==NULL || head-&amp;gt;m_pNext==NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       return head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   ListNode * p=head-&amp;gt;m_pNext;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   ListNode * q=head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   while(p!=NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     q-&amp;gt;m_pNext=p-&amp;gt;m_pNext;//记录下p的下一个节点  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     p-&amp;gt;m_pNext=head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     head=p;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     p=q-&amp;gt;m_pNext;//准备将p的下一个节点放到表头  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   return head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -63,6 +63,10 @@
     
     </summary>
     
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
