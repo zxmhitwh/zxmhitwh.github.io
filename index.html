@@ -278,7 +278,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/03/pagerank算法的具体实现/" itemprop="url">
+                <a class="post-title-link" href="/2016/06/19/pagerank算法的具体实现/" itemprop="url">
                   Pagerank算法的具体实现
                 </a>
               
@@ -292,8 +292,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-03T00:10:34+08:00" content="2016-05-03">
-              2016-05-03
+            <time itemprop="dateCreated" datetime="2016-06-19T00:00:00+08:00" content="2016-06-19">
+              2016-06-19
             </time>
           </span>
 
@@ -322,8 +322,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/03/pagerank算法的具体实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/03/pagerank算法的具体实现/" itemprop="commentsCount"></span>
+                <a href="/2016/06/19/pagerank算法的具体实现/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/19/pagerank算法的具体实现/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,7 +350,7 @@
           <p>PageRank对网页排名的算法，曾是Google发家致富的法宝。以前虽然有实验过，但理解还是不透彻，这几天又看了一下，这里总结一下PageRank算法的基本原理。</p>
 <h3 id="1、什么是pagerank"><a href="#1、什么是pagerank" class="headerlink" title="1、什么是pagerank"></a>1、什么是pagerank</h3><p>PageRank的Page可是认为是网页，表示网页排名，也可以认为是Larry Page(google 产品经理)，因为他是这个算法的发明者之一，还是google CEO（^_^）。PageRank算法计算每一个网页的PageRank值，然后根据这个值的大小对网页的重要性进行排序。它的思想是模拟一个悠闲的上网者，上网者首先随机选择一个网页打开，然后在这个网页上呆了几分钟后，跳转到该网页所指向的链接，这样无所事事、漫无目的地在网页上跳来跳去，PageRank就是估计这个悠闲的上网者分布在各个网页上的概率。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/03/pagerank算法的具体实现/#more" rel="contents">
+            <a class="btn" href="/2016/06/19/pagerank算法的具体实现/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -401,7 +401,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/03/单链表反转问题/" itemprop="url">
+                <a class="post-title-link" href="/2016/06/15/单链表反转问题/" itemprop="url">
                   单链表反转问题
                 </a>
               
@@ -415,8 +415,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-03T00:10:34+08:00" content="2016-05-03">
-              2016-05-03
+            <time itemprop="dateCreated" datetime="2016-06-15T00:00:00+08:00" content="2016-06-15">
+              2016-06-15
             </time>
           </span>
 
@@ -445,8 +445,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/03/单链表反转问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/03/单链表反转问题/" itemprop="commentsCount"></span>
+                <a href="/2016/06/15/单链表反转问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/单链表反转问题/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -473,7 +473,7 @@
           <p>题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。</p>
 <h3 id="1、非递归方式实现"><a href="#1、非递归方式实现" class="headerlink" title="1、非递归方式实现"></a>1、非递归方式实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  </div><div class="line">ListNode * ReverseList(ListNode *  head)  </div><div class="line">&#123;  </div><div class="line">   //如果链表为空或者链表中只有一个元素  </div><div class="line">   if(head==NULL || head-&gt;m_pNext==NULL)  </div><div class="line">       return head;  </div><div class="line">   ListNode * p=head-&gt;m_pNext;  </div><div class="line">   ListNode * q=head;  </div><div class="line">   while(p!=NULL)  </div><div class="line">   &#123;  </div><div class="line">     q-&gt;m_pNext=p-&gt;m_pNext;//记录下p的下一个节点  </div><div class="line">     p-&gt;m_pNext=head;  </div><div class="line">     head=p;  </div><div class="line">     p=q-&gt;m_pNext;//准备将p的下一个节点放到表头  </div><div class="line">   &#125;  </div><div class="line">   return head;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/03/单链表反转问题/#more" rel="contents">
+            <a class="btn" href="/2016/06/15/单链表反转问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
