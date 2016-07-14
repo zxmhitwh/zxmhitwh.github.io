@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="逻辑回归,主动学习," />
+  <meta name="keywords" content="Deep Learning," />
 
 
 
@@ -104,31 +104,27 @@
 
 
 
-<meta name="description" content="目前正在做句子主干提取方面的工作，主要方法是构建二分类器，提取句子分词之后每个词的特征来决定分词的取舍。由于需要标注大量的训练语料，采用人工的方法费时费力，于是采用主动学习的方法实现语料标注，我实现的步骤如下：
-
-先对语料实现人工标注一部分
-使用机器学习训练模型如SVM、LR对已经标注的语料训练，把为标注的语料作为测试集
-为测试机样本产生标签及置信度（即标签的准确性的概率值）
-通过观察为置信">
+<meta name="description" content="1.人工神经网络1.1神经元神经网络由大量的神经元相互连接而成。每个神经元接受线性组合的输入后，最开始只是简单的线性加权，后来给每个神经元加上了非线性的激活函数，从而进行非线性变换后输出。每两个神经元之间的连接代表加权值，称之为权重（weight）。不同的权重和激活函数，则会导致神经网络不同的输出。
+举个手写识别的例子，给定一个未知数字，让神经网络识别是什么数字。此时的神经网络的输入由一组被输入图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过主动学习的方法进行自动语料标注">
-<meta property="og:url" content="http://yoursite.com/2016/06/24/通过主动学习的方法进行自动语料标注/index.html">
+<meta property="og:title" content="通俗理解卷积神经网络(CNN)[转载]">
+<meta property="og:url" content="http://yoursite.com/2016/07/11/通俗理解卷积神经网络(CNN)/index.html">
 <meta property="og:site_name" content=" John's Blog">
-<meta property="og:description" content="目前正在做句子主干提取方面的工作，主要方法是构建二分类器，提取句子分词之后每个词的特征来决定分词的取舍。由于需要标注大量的训练语料，采用人工的方法费时费力，于是采用主动学习的方法实现语料标注，我实现的步骤如下：
-
-先对语料实现人工标注一部分
-使用机器学习训练模型如SVM、LR对已经标注的语料训练，把为标注的语料作为测试集
-为测试机样本产生标签及置信度（即标签的准确性的概率值）
-通过观察为置信">
-<meta property="og:updated_time" content="2016-07-08T10:50:19.000Z">
+<meta property="og:description" content="1.人工神经网络1.1神经元神经网络由大量的神经元相互连接而成。每个神经元接受线性组合的输入后，最开始只是简单的线性加权，后来给每个神经元加上了非线性的激活函数，从而进行非线性变换后输出。每两个神经元之间的连接代表加权值，称之为权重（weight）。不同的权重和激活函数，则会导致神经网络不同的输出。
+举个手写识别的例子，给定一个未知数字，让神经网络识别是什么数字。此时的神经网络的输入由一组被输入图">
+<meta property="og:image" content="http://img.blog.csdn.net/20160703112618929">
+<meta property="og:image" content="http://img.blog.csdn.net/20160703140734967">
+<meta property="og:image" content="http://img.blog.csdn.net/20160703140745657">
+<meta property="og:image" content="http://img.blog.csdn.net/20160703110336151">
+<meta property="og:image" content="http://img.blog.csdn.net/20160703113851013">
+<meta property="og:image" content="http://img.blog.csdn.net/20160702215705128">
+<meta property="og:image" content="http://img.blog.csdn.net/20160707204048899">
+<meta property="og:updated_time" content="2016-07-14T07:30:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通过主动学习的方法进行自动语料标注">
-<meta name="twitter:description" content="目前正在做句子主干提取方面的工作，主要方法是构建二分类器，提取句子分词之后每个词的特征来决定分词的取舍。由于需要标注大量的训练语料，采用人工的方法费时费力，于是采用主动学习的方法实现语料标注，我实现的步骤如下：
-
-先对语料实现人工标注一部分
-使用机器学习训练模型如SVM、LR对已经标注的语料训练，把为标注的语料作为测试集
-为测试机样本产生标签及置信度（即标签的准确性的概率值）
-通过观察为置信">
+<meta name="twitter:title" content="通俗理解卷积神经网络(CNN)[转载]">
+<meta name="twitter:description" content="1.人工神经网络1.1神经元神经网络由大量的神经元相互连接而成。每个神经元接受线性组合的输入后，最开始只是简单的线性加权，后来给每个神经元加上了非线性的激活函数，从而进行非线性变换后输出。每两个神经元之间的连接代表加权值，称之为权重（weight）。不同的权重和激活函数，则会导致神经网络不同的输出。
+举个手写识别的例子，给定一个未知数字，让神经网络识别是什么数字。此时的神经网络的输入由一组被输入图">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160703112618929">
 
 
 
@@ -149,9 +145,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/06/24/通过主动学习的方法进行自动语料标注/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/11/通俗理解卷积神经网络(CNN)/"/>
 
-  <title> 通过主动学习的方法进行自动语料标注 |  John's Blog </title>
+  <title> 通俗理解卷积神经网络(CNN)[转载] |  John's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +287,7 @@
             
             
               
-                通过主动学习的方法进行自动语料标注
+                通俗理解卷积神经网络(CNN)[转载]
               
             
           </h1>
@@ -303,8 +299,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-24T00:00:00+08:00" content="2016-06-24">
-              2016-06-24
+            <time itemprop="dateCreated" datetime="2016-07-11T00:00:00+08:00" content="2016-07-11">
+              2016-07-11
             </time>
           </span>
 
@@ -317,8 +313,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/句子主干提取/" itemprop="url" rel="index">
-                    <span itemprop="name">句子主干提取</span>
+                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
                   </a>
                 </span>
 
@@ -333,8 +329,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/24/通过主动学习的方法进行自动语料标注/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/24/通过主动学习的方法进行自动语料标注/" itemprop="commentsCount"></span>
+                <a href="/2016/07/11/通俗理解卷积神经网络(CNN)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/11/通俗理解卷积神经网络(CNN)/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -357,17 +353,27 @@
       
 
       
-        <p>   目前正在做句子主干提取方面的工作，主要方法是构建二分类器，提取句子分词之后每个词的特征来决定分词的取舍。由于需要标注大量的训练语料，采用人工的方法费时费力，于是采用主动学习的方法实现语料标注，我实现的步骤如下：</p>
+        <h2 id="1-人工神经网络"><a href="#1-人工神经网络" class="headerlink" title="1.人工神经网络"></a>1.人工神经网络</h2><h3 id="1-1神经元"><a href="#1-1神经元" class="headerlink" title="1.1神经元"></a>1.1神经元</h3><p>神经网络由大量的神经元相互连接而成。每个神经元接受线性组合的输入后，最开始只是简单的线性加权，后来给每个神经元加上了非线性的激活函数，从而进行非线性变换后输出。每两个神经元之间的连接代表加权值，称之为权重（weight）。不同的权重和激活函数，则会导致神经网络不同的输出。</p>
+<p>举个手写识别的例子，给定一个未知数字，让神经网络识别是什么数字。此时的神经网络的输入由一组被输入图像的像素所激活的输入神经元所定义。在通过非线性激活函数进行非线性变换后，神经元被激活然后被传递到其他神经元。重复这一过程，直到最后一个输出神经元被激活。从而识别当前数字是什么字。<br><a id="more"></a><br>    神经网络的每个神经元如下<br>    <img src="http://img.blog.csdn.net/20160703112618929" alt="神经网络示例"><br>类似wx + b的形式，其中</p>
 <ul>
-<li>先对语料实现人工标注一部分</li>
-<li>使用机器学习训练模型如SVM、LR对已经标注的语料训练，把为标注的语料作为测试集</li>
-<li>为测试机样本产生标签及置信度（即标签的准确性的概率值）</li>
-<li>通过观察为置信度设定一个阈值，当样本中的每个分词都满足这个阈值时，我们把这个自动标注好的测试样本加入到训练集中，在测试样本中取出这个样本</li>
-<li>重复2-4步，直到剩余的测试样本中没有完全满足阈值的</li>
-<li><p>输出剩余的测试样本</p>
-<p> 刚开始我觉得这种方法非常好，经过测试，大概20次迭代之后大概4/5的样本已经标注好了<br>经过导师指导发现这种方法并不可靠，因为你新添加的训练集也是之前训练集产生的，反复迭代只会过拟合。我们应该设定一个比较低的阈值，找到测试集中非常不确定的测试样本（所有这些测试样本的置信度很低），通常来说这些样本是最有“价值”的样本，我们对这一小部分采用人工标注，并放入到训练集中，反复几次。</p>
+<li>a1~an为输入向量，当然，也常用x1~xn表示输入</li>
+<li>w1~wn为权重</li>
+<li>b为偏置bias</li>
+<li>f 为激活函数</li>
+<li><p>t 为输出<br>  如果只是上面这样一说，估计以前没接触过的十有八九又必定迷糊了。事实上，上述简单模型可以追溯到20世纪50/60年代的感知器，可以把感知器理解为一个根据不同因素、以及各个因素的重要性程度而做决策的模型。</p>
+<p>  举个例子，这周末北京有一草莓音乐节，那去不去呢？决定你是否去有3个因素，这三个因素可以对应三个输入，分别用x1、x2、x3表示。此外，这三个因素对做决策的影响程度不一样，各自的影响程度用权重w1、w2、w3表示。一般来说，音乐节的演唱嘉宾会非常影响你去不去，唱得好的前提下 即便天气不好、没人陪同都可忍受，但如果唱得不好还不如你上台唱呢。所以，我们可以如下表示：</p>
+</li>
+<li><p>x1：是否有喜欢的演唱嘉宾。x1 = 1 你喜欢这些嘉宾，x1 = 0 你不喜欢这些嘉宾。嘉宾因素的权重w1 = 5</p>
+</li>
+<li>x2：天气好坏。x2 = 1 天气好，x2 = 0 天气不好。天气权重w2 = 2。</li>
+<li><p>x3：是否有人陪你同去。x3 = 1 有人陪你同去，x2 = 0 没人陪你同去。是否有陪同的权重w3 = 3。<br>  这样，咱们的决策模型函数便建立起来了：f(x) = g( w1<em>x1 + w2</em>x2 + w3*x3 + b )，g表示激活函数。然后设定一个阈值，如果这些加权输入值的和[ 即f(x) ]超过这个阈值，就输出1：代表去参加音乐节，否则输出0：代表不去参加音乐节。<br>  一开始，激活函数是线性函数，导致所有的变换都是线性变换，比如if x &lt; 0 f(x) = 0; if x &gt; 0,f(x) = 1，输出都是输入的线性变换。后来实际应用中发现，线性激活函数太过局限，于是人们引入了非线性激活函数。</p>
+<h3 id="1-2神经网络"><a href="#1-2神经网络" class="headerlink" title="1.2神经网络"></a>1.2神经网络</h3><p>将下图的这种单个神经元<br><img src="http://img.blog.csdn.net/20160703140734967" alt="神经网络示例"><br>组织在一起，便形成了神经网络。下图便是一个三层神经网络结构<br><img src="http://img.blog.csdn.net/20160703140745657" alt="神经网络示例"><br>上图中最左边的原始输入信息称之为输入层，最右边的神经元称之为输出层（上图中输出层只有一个神经元），中间的叫隐藏层。</p>
+<p>  啥叫输入层、输出层、隐藏层呢？</p>
 </li>
 </ul>
+<p>输入层（Input layer），众多神经元（Neuron）接受大量非线形输入讯息。输入的讯息称为输入向量。<br>输出层（Output layer），讯息在神经元链接中传输、分析、权衡，形成输出结果。输出的讯息称为输出向量。<br>隐藏层（Hidden layer），简称“隐层”，是输入层和输出层之间众多神经元和链接组成的各个层面。如果有多个隐藏层，则意味着多个激活函数。<br>    同时，每一层都可能由单个或多个神经元组成，每一层的输出将会作为下一层的输入数据。比如下图中间隐藏层来说，隐藏层的3个神经元a1、a2、a3皆各自接受来自多个不同权重的输入，接着，a1、a2、a3又在自身各自不同权重的影响下 成为的输出层的输入，最终由输出层输出最终结果。<br> <img src="http://img.blog.csdn.net/20160703110336151" alt="神经网络示例"><br>  <img src="http://img.blog.csdn.net/20160703113851013" alt="神经网络示例"></p>
+<h2 id="2-CNN之卷积计算层"><a href="#2-CNN之卷积计算层" class="headerlink" title="2.CNN之卷积计算层"></a>2.CNN之卷积计算层</h2><h3 id="2-1什么是卷积"><a href="#2-1什么是卷积" class="headerlink" title="2.1什么是卷积"></a>2.1什么是卷积</h3><p> 首先，我们来了解下什么是卷积操作。<br>    对图像（不同的数据窗口数据）和滤波矩阵（一组固定的权重：因为每个神经元的权重固定，所以又可以看做一个恒定的滤波器filter）做内积（逐个元素相乘再求和）的操作就是所谓的『卷积』操作，也是卷积神经网络的名字来源。<br>    比如下图中，图中左边部分是原始输入数据，图中中间部分是滤波器filter，图中右边是输出的新的二维数据。<br> <img src="http://img.blog.csdn.net/20160702215705128" alt="神经网络示例"><br>中间滤波器filter与数据窗口做内积，其具体计算过程则是：4<em>0 + 0</em>0 + 0<em>0 + 0</em>0 + 0<em>1 + 0</em>1 + 0<em>0 + 0</em>1 + -4*2 = -8</p>
+<h3 id="2-2动态卷积图"><a href="#2-2动态卷积图" class="headerlink" title="2.2动态卷积图"></a>2.2动态卷积图</h3><p>在CNN中，滤波器filter对局部输入数据进行卷积计算。每计算完一个数据窗口内的局部数据后，数据窗口不断平移滑动，直到计算完所有数据。这个过程中，有这么几个参数：<br>　　a. 深度depth：神经元个数，决定输出的depth厚度。<br>　　b. 步长stride：决定滑动多少步可以到边缘<br>　　c. 填充值zero-padding：在外围边缘补充若干圈0，方便从初始位置以步长为单位可以刚好滑倒末尾位置，通俗地讲就是为了总长能被步长整除。<br><img src="http://img.blog.csdn.net/20160707204048899" alt="神经网络示例"></p>
 
       
     </div>
@@ -389,9 +395,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/逻辑回归/" rel="tag">#逻辑回归</a>
-          
-            <a href="/tags/主动学习/" rel="tag">#主动学习</a>
+            <a href="/tags/Deep-Learning/" rel="tag">#Deep Learning</a>
           
         </div>
       
@@ -400,17 +404,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/19/pagerank算法的具体实现/" rel="next" title="Pagerank算法的具体实现">
-                <i class="fa fa-chevron-left"></i> Pagerank算法的具体实现
+              <a href="/2016/07/09/C:C++中计算程序运行时间的方法/" rel="next" title="C/C++中计算程序运行时间的方法">
+                <i class="fa fa-chevron-left"></i> C/C++中计算程序运行时间的方法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/05/利用标注语料生成决策weights/" rel="prev" title="利用标注语料生成决策weights">
-                利用标注语料生成决策weights <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -436,8 +436,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/24/通过主动学习的方法进行自动语料标注/"
-           data-title="通过主动学习的方法进行自动语料标注" data-url="http://yoursite.com/2016/06/24/通过主动学习的方法进行自动语料标注/">
+      <div class="ds-thread" data-thread-key="2016/07/11/通俗理解卷积神经网络(CNN)/"
+           data-title="通俗理解卷积神经网络(CNN)[转载]" data-url="http://yoursite.com/2016/07/11/通俗理解卷积神经网络(CNN)/">
       </div>
     
   </div>
@@ -573,7 +573,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-人工神经网络"><span class="nav-number">1.</span> <span class="nav-text">1.人工神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1神经元"><span class="nav-number">1.1.</span> <span class="nav-text">1.1神经元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2神经网络"><span class="nav-number">1.2.</span> <span class="nav-text">1.2神经网络</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CNN之卷积计算层"><span class="nav-number">2.</span> <span class="nav-text">2.CNN之卷积计算层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1什么是卷积"><span class="nav-number">2.1.</span> <span class="nav-text">2.1什么是卷积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2动态卷积图"><span class="nav-number">2.2.</span> <span class="nav-text">2.2动态卷积图</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

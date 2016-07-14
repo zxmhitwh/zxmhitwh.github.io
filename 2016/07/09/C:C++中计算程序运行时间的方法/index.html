@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="-C/C++ -运行时间," />
 
 
 
@@ -104,16 +104,19 @@
 
 
 
-<meta name="description" content="心之所向,四海归一">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="最近写完程序在公司需要测试每个句子输入到返回结果的运行时间，刚开始使用clock()函数是精确到毫秒，但是经过测试然并卵，总是返回0ms，程序运行时间太短，最后总结一下：
+精确到毫秒msclock()计算的是CPU执行耗时，注意是CPU！如果有多个核并行，最后的结果是每个CPU上运算时间的总和！想要精确到毫秒，可以double(end -begin)*1000/CLOCKS_PER_SEC一般来说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C/C++中计算程序运行时间的方法">
+<meta property="og:url" content="http://yoursite.com/2016/07/09/C:C++中计算程序运行时间的方法/index.html">
 <meta property="og:site_name" content=" John's Blog">
-<meta property="og:description" content="心之所向,四海归一">
-<meta property="og:updated_time" content="2016-07-06T02:33:31.000Z">
+<meta property="og:description" content="最近写完程序在公司需要测试每个句子输入到返回结果的运行时间，刚开始使用clock()函数是精确到毫秒，但是经过测试然并卵，总是返回0ms，程序运行时间太短，最后总结一下：
+精确到毫秒msclock()计算的是CPU执行耗时，注意是CPU！如果有多个核并行，最后的结果是每个CPU上运算时间的总和！想要精确到毫秒，可以double(end -begin)*1000/CLOCKS_PER_SEC一般来说">
+<meta property="og:updated_time" content="2016-07-14T07:07:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="心之所向,四海归一">
+<meta name="twitter:title" content="C/C++中计算程序运行时间的方法">
+<meta name="twitter:description" content="最近写完程序在公司需要测试每个句子输入到返回结果的运行时间，刚开始使用clock()函数是精确到毫秒，但是经过测试然并卵，总是返回0ms，程序运行时间太短，最后总结一下：
+精确到毫秒msclock()计算的是CPU执行耗时，注意是CPU！如果有多个核并行，最后的结果是每个CPU上运算时间的总和！想要精确到毫秒，可以double(end -begin)*1000/CLOCKS_PER_SEC一般来说">
 
 
 
@@ -134,15 +137,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/09/C:C++中计算程序运行时间的方法/"/>
 
-  <title>
-  
-
-  
-    分类 |  John's Blog
-  
-</title>
+  <title> C/C++中计算程序运行时间的方法 |  John's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,7 +160,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -263,16 +260,149 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-      <div class="category-all-page">
-        <div class="category-all-title">
-            目前共计 5 个分类
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C/C++中计算程序运行时间的方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-09T00:00:00+08:00" content="2016-07-09">
+              2016-07-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C/C++</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/09/C:C++中计算程序运行时间的方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/C:C++中计算程序运行时间的方法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C-C/">C/C++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/句子主干提取/">句子主干提取</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/实体链接/">实体链接</a><span class="category-list-count">1</span></li></ul>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近写完程序在公司需要测试每个句子输入到返回结果的运行时间，刚开始使用clock()函数是精确到毫秒，但是经过测试然并卵，总是返回0ms，程序运行时间太短，最后总结一下：</p>
+<h3 id="精确到毫秒ms"><a href="#精确到毫秒ms" class="headerlink" title="精确到毫秒ms"></a>精确到毫秒ms</h3><p>clock()计算的是CPU执行耗时，注意是CPU！如果有多个核并行，最后的结果是每个CPU上运算时间的总和！想要精确到毫秒，可以double(end -begin)*1000/CLOCKS_PER_SEC<br>一般来说，只要求精确到秒的话，time是很好使的<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#include &lt;&lt;/span&gt;stdio.h&gt;</div><div class="line">#include &lt;&lt;/span&gt;time.h&gt;</div><div class="line"> </div><div class="line">int main()&#123;</div><div class="line">    time_t t_start, t_end;</div><div class="line">    t_start = time(NULL) ;</div><div class="line">    sleep(3000);</div><div class="line">    t_end = time(NULL) ;</div><div class="line">    printf(&quot;time: %.0f s\n&quot;, difftime(t_end,t_start)) ;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="精确到微秒us"><a href="#精确到微秒us" class="headerlink" title="精确到微秒us"></a>精确到微秒us</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#include &lt;&lt;/span&gt;stdio.h&gt;</div><div class="line">#include &lt;&lt;/span&gt;sys/time.h&gt;</div><div class="line"> </div><div class="line">int main() &#123;</div><div class="line">    struct timeval start, end;</div><div class="line">    gettimeofday( &amp;start, NULL );</div><div class="line">    sleep(3);</div><div class="line">    gettimeofday( &amp;end, NULL );</div><div class="line">    int timeuse = 1000000 * ( end.tv_sec - start.tv_sec ) + end.tv_usec -start.tv_usec;</div><div class="line">    printf(&quot;time: %d us\n&quot;, timeuse);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C-C-运行时间/" rel="tag">#-C/C++ -运行时间</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/05/利用标注语料生成决策weights/" rel="next" title="利用标注语料生成决策weights">
+                <i class="fa fa-chevron-left"></i> 利用标注语料生成决策weights
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/11/通俗理解卷积神经网络(CNN)/" rel="prev" title="通俗理解卷积神经网络(CNN)[转载]">
+                通俗理解卷积神经网络(CNN)[转载] <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -283,8 +413,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="categories/index.html"
-           data-title="categories" data-url="http://yoursite.com/categories/index.html">
+      <div class="ds-thread" data-thread-key="2016/07/09/C:C++中计算程序运行时间的方法/"
+           data-title="C/C++中计算程序运行时间的方法" data-url="http://yoursite.com/2016/07/09/C:C++中计算程序运行时间的方法/">
       </div>
     
   </div>
@@ -308,8 +438,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/timg.png"
@@ -405,6 +544,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#精确到毫秒ms"><span class="nav-number">1.</span> <span class="nav-text">精确到毫秒ms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#精确到微秒us"><span class="nav-number">2.</span> <span class="nav-text">精确到微秒us</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -499,6 +649,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
