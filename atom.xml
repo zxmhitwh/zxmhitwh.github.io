@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-08T09:18:09.000Z</updated>
+  <updated>2016-07-14T07:04:46.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C/C++中计算程序运行时间的方法</title>
+    <link href="http://yoursite.com/2016/07/14/C:C++%E4%B8%AD%E8%AE%A1%E7%AE%97%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2016/07/14/C:C++中计算程序运行时间的方法/</id>
+    <published>2016-07-14T06:20:26.000Z</published>
+    <updated>2016-07-14T07:04:46.000Z</updated>
+    
+    <content type="html">&lt;p&gt;最近写完程序在公司需要测试每个句子输入到返回结果的运行时间，刚开始使用clock()函数是精确到毫秒，但是经过测试然并卵，总是返回0ms，程序运行时间太短，最后总结一下：&lt;/p&gt;
+&lt;h3 id=&quot;精确到毫秒ms&quot;&gt;&lt;a href=&quot;#精确到毫秒ms&quot; class=&quot;headerlink&quot; title=&quot;精确到毫秒ms&quot;&gt;&lt;/a&gt;精确到毫秒ms&lt;/h3&gt;&lt;p&gt;clock()计算的是CPU执行耗时，注意是CPU！如果有多个核并行，最后的结果是每个CPU上运算时间的总和！想要精确到毫秒，可以double(end -begin)*1000/CLOCKS_PER_SEC&lt;br&gt;一般来说，只要求精确到秒的话，time是很好使的&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;#include &amp;lt;&amp;lt;/span&amp;gt;stdio.h&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#include &amp;lt;&amp;lt;/span&amp;gt;time.h&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;int main()&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    time_t t_start, t_end;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    t_start = time(NULL) ;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    sleep(3000);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    t_end = time(NULL) ;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    printf(&amp;quot;time: %.0f s\n&amp;quot;, difftime(t_end,t_start)) ;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    return 0;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;精确到微秒us&quot;&gt;&lt;a href=&quot;#精确到微秒us&quot; class=&quot;headerlink&quot; title=&quot;精确到微秒us&quot;&gt;&lt;/a&gt;精确到微秒us&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;#include &amp;lt;&amp;lt;/span&amp;gt;stdio.h&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#include &amp;lt;&amp;lt;/span&amp;gt;sys/time.h&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;int main() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    struct timeval start, end;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    gettimeofday( &amp;amp;start, NULL );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    sleep(3);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    gettimeofday( &amp;amp;end, NULL );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    int timeuse = 1000000 * ( end.tv_sec - start.tv_sec ) + end.tv_usec -start.tv_usec;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    printf(&amp;quot;time: %d us\n&amp;quot;, timeuse);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    return 0;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近写完程序在公司需要测试每个句子输入到返回结果的运行时间，刚开始使用clock()函数是精确到毫秒，但是经过测试然并卵，总是返回0ms，程序运行时间太短，最后总结一下：&lt;/p&gt;
+&lt;h3 id=&quot;精确到毫秒ms&quot;&gt;&lt;a href=&quot;#精确到毫秒ms&quot; class=&quot;headerlink&quot; title=&quot;精确到毫秒ms&quot;&gt;&lt;/a&gt;精确到毫秒ms&lt;/h3&gt;&lt;p&gt;clock()计算的是CPU执行耗时，注意是CPU！如果有多个核并行，最后的结果是每个CPU上运算时间的总和！想要精确到毫秒，可以double(end -begin)*1000/CLOCKS_PER_SEC&lt;br&gt;一般来说，只要求精确到秒的话，time是很好使的&lt;br&gt;
+    
+    </summary>
+    
+      <category term="C/C++" scheme="http://yoursite.com/categories/C-C/"/>
+    
+    
+      <category term="-C/C++ -运行时间" scheme="http://yoursite.com/tags/C-C-%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>利用标注语料生成决策weights</title>
