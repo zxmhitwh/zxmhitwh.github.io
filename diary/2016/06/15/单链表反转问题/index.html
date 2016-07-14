@@ -1,0 +1,703 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode,算法," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title=" John's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favico.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
+1、非递归方式实现1234567891011121314151617//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  ListNode * ReverseList(ListNode *  head)  &amp;#123;     //如果链表为空或者链表中只有一个元素     if(h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单链表反转问题">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/单链表反转问题/index.html">
+<meta property="og:site_name" content=" John's Blog">
+<meta property="og:description" content="题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
+1、非递归方式实现1234567891011121314151617//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  ListNode * ReverseList(ListNode *  head)  &amp;#123;     //如果链表为空或者链表中只有一个元素     if(h">
+<meta property="og:updated_time" content="2016-07-08T06:55:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="单链表反转问题">
+<meta name="twitter:description" content="题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
+1、非递归方式实现1234567891011121314151617//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  ListNode * ReverseList(ListNode *  head)  &amp;#123;     //如果链表为空或者链表中只有一个元素     if(h">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6280096486222988000,
+      author: '小编'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/15/单链表反转问题/"/>
+
+  <title> 单链表反转问题 |  John's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title"> John's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">张晓明的博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            个人信息
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                单链表反转问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T00:00:00+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/单链表反转问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/单链表反转问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。</p>
+<h3 id="1、非递归方式实现"><a href="#1、非递归方式实现" class="headerlink" title="1、非递归方式实现"></a>1、非递归方式实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  </div><div class="line">ListNode * ReverseList(ListNode *  head)  </div><div class="line">&#123;  </div><div class="line">   //如果链表为空或者链表中只有一个元素  </div><div class="line">   if(head==NULL || head-&gt;m_pNext==NULL)  </div><div class="line">       return head;  </div><div class="line">   ListNode * p=head-&gt;m_pNext;  </div><div class="line">   ListNode * q=head;  </div><div class="line">   while(p!=NULL)  </div><div class="line">   &#123;  </div><div class="line">     q-&gt;m_pNext=p-&gt;m_pNext;//记录下p的下一个节点  </div><div class="line">     p-&gt;m_pNext=head;  </div><div class="line">     head=p;  </div><div class="line">     p=q-&gt;m_pNext;//准备将p的下一个节点放到表头  </div><div class="line">   &#125;  </div><div class="line">   return head;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2、递归方式实现"><a href="#2、递归方式实现" class="headerlink" title="2、递归方式实现"></a>2、递归方式实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ListNode * ReverseList2(ListNode * head)  </div><div class="line">&#123;  </div><div class="line">    //如果链表为空或者链表中只有一个元素  </div><div class="line">    if(head==NULL || head-&gt;m_pNext==NULL)  </div><div class="line">        return head;  </div><div class="line">    else  </div><div class="line">    &#123;  </div><div class="line">       ListNode * newhead=ReverseList2(head-&gt;m_pNext);//先反转后面的链表  </div><div class="line">       head-&gt;m_pNext-&gt;m_pNext=head;//再将当前节点设置为其然来后面节点的后续节点  </div><div class="line">       head-&gt;m_pNext=NULL;  </div><div class="line">       return newhead;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3、完整的代码流程"><a href="#3、完整的代码流程" class="headerlink" title="3、完整的代码流程"></a>3、完整的代码流程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line">// 反转链表.cpp : 定义控制台应用程序的入口点。  </div><div class="line">#include &quot;stdafx.h&quot;  </div><div class="line">#include  &lt;iostream&gt;  </div><div class="line">using namespace std;  </div><div class="line"></div><div class="line">//定义一个链表节点  </div><div class="line"> typedef struct ListNode  </div><div class="line">&#123;  </div><div class="line">    int       m_nKey;  </div><div class="line">    struct ListNode * m_pNext;  </div><div class="line">&#125;ListNode;  </div><div class="line"></div><div class="line">//插入一个新节点到链表中(放在链表头部)  </div><div class="line">void CreateList(ListNode * &amp; head,int data)  </div><div class="line">&#123;  </div><div class="line">    //创建新节点  </div><div class="line">    ListNode * p=(ListNode*)malloc(sizeof(ListNode));  </div><div class="line">    p-&gt;m_nKey=data;  </div><div class="line">    p-&gt;m_pNext=NULL;  </div><div class="line"></div><div class="line">    if(head==NULL)  </div><div class="line">    &#123;  </div><div class="line">        head=p;  </div><div class="line">        return;  </div><div class="line">    &#125;  </div><div class="line">    p-&gt;m_pNext=head;  </div><div class="line">    head=p;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">void  printList(ListNode* head)  </div><div class="line">&#123;  </div><div class="line">   ListNode * p=head;  </div><div class="line">   while(p!=NULL)  </div><div class="line">   &#123;  </div><div class="line">      cout&lt;&lt;p-&gt;m_nKey&lt;&lt;&quot; &quot;;  </div><div class="line">      p=p-&gt;m_pNext;  </div><div class="line">   &#125;  </div><div class="line">   cout&lt;&lt;endl;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  </div><div class="line">ListNode * ReverseList(ListNode *  head)  </div><div class="line">&#123;  </div><div class="line">   //如果链表为空或者链表中只有一个元素  </div><div class="line">   if(head==NULL || head-&gt;m_pNext==NULL)  </div><div class="line">       return head;  </div><div class="line">   ListNode * p=head-&gt;m_pNext;  </div><div class="line">   ListNode * q=head;  </div><div class="line">   while(p!=NULL)  </div><div class="line">   &#123;  </div><div class="line">     q-&gt;m_pNext=p-&gt;m_pNext;//记录下p的下一个节点  </div><div class="line">     p-&gt;m_pNext=head;  </div><div class="line">     head=p;  </div><div class="line">     p=q-&gt;m_pNext;//准备将p的下一个节点放到表头  </div><div class="line">   &#125;  </div><div class="line">   return head;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">//递归方式  </div><div class="line">ListNode * ReverseList2(ListNode * head)  </div><div class="line">&#123;  </div><div class="line">    //如果链表为空或者链表中只有一个元素  </div><div class="line">    if(head==NULL || head-&gt;m_pNext==NULL)  </div><div class="line">        return head;  </div><div class="line">    else  </div><div class="line">    &#123;  </div><div class="line">       ListNode * newhead=ReverseList2(head-&gt;m_pNext);//先反转后面的链表  </div><div class="line">       head-&gt;m_pNext-&gt;m_pNext=head;//再将当前节点设置为其然来后面节点的后续节点  </div><div class="line">       head-&gt;m_pNext=NULL;  </div><div class="line">       return newhead;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">int _tmain(int argc, _TCHAR* argv[])  </div><div class="line">&#123;  </div><div class="line">    ListNode * Head=NULL;  </div><div class="line">    for(int i=0;i&lt;10;i++)  </div><div class="line">      CreateList(Head,i);  </div><div class="line">    printList(Head);  </div><div class="line">    Head=ReverseList(Head);  </div><div class="line">    printList(Head);  </div><div class="line">    system(&quot;PAUSE&quot;);  </div><div class="line">    return 0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/19/pagerank算法的具体实现/" rel="prev" title="Pagerank算法的具体实现">
+                Pagerank算法的具体实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/15/单链表反转问题/"
+           data-title="单链表反转问题" data-url="http://yoursite.com/2016/06/15/单链表反转问题/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/timg.png"
+               alt="John" />
+          <p class="site-author-name" itemprop="name">John</p>
+          <p class="site-description motion-element" itemprop="description">心之所向,四海归一</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zxmhitwh" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/zhangxiaomin110" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-university"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2453819211/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/xiao-ming-tong-xue-25" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-trophy"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、非递归方式实现"><span class="nav-number">1.</span> <span class="nav-text">1、非递归方式实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、递归方式实现"><span class="nav-number">2.</span> <span class="nav-text">2、递归方式实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、完整的代码流程"><span class="nav-number">3.</span> <span class="nav-text">3、完整的代码流程</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder" herf="zhangxiaoming.com.cn"><a herf="zhangxiaoming.com.cn">John</a></span>
+  <p>联系方式: 哈尔滨工业大学新技术楼603 15663492128</p>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"johnhit"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

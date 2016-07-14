@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title> John&#39;s Blog</title>
+  <subtitle>张晓明的博客</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-07-08T09:18:09.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用标注语料生成决策weights</title>
+    <link href="http://yoursite.com/2016/07/05/%E5%88%A9%E7%94%A8%E6%A0%87%E6%B3%A8%E8%AF%AD%E6%96%99%E7%94%9F%E6%88%90%E5%86%B3%E7%AD%96weights/"/>
+    <id>http://yoursite.com/2016/07/05/利用标注语料生成决策weights/</id>
+    <published>2016-07-04T16:00:00.000Z</published>
+    <updated>2016-07-08T09:18:09.000Z</updated>
+    
+    <content type="html">&lt;p&gt;1、之前两周利用主动学习的方式训练集&lt;br&gt;2、标注数据分离一小部分作为测试集利用LR分类器调参。&lt;br&gt;3、利用最有参数训练标注语料生成特征权重weights。&lt;br&gt;3、使用weights获得主干提取demo。&lt;br&gt;周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想&lt;br&gt;分析原因：训练集过少、覆盖面过窄、稳定性不高&lt;br&gt;这周的主要工作：&lt;br&gt;1、提取多种语料库中的资源做人工语料标注&lt;br&gt;2、增加部分特征，扩大特征维度&lt;br&gt;3、特征结构统一化，例如某个词的特征用词典表示，预定义好所有的key。暂时定义如下：&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;列表内容&lt;/li&gt;
+&lt;li&gt;word_0  当前词本身&lt;/li&gt;
+&lt;li&gt;pos_0  当前词本身词性&lt;/li&gt;
+&lt;li&gt;cluster_0 当前词本身聚类编号&lt;/li&gt;
+&lt;li&gt;word_-1  当前词的前一个词本身&lt;/li&gt;
+&lt;li&gt;pos_-1   当前词的前一个词词性&lt;/li&gt;
+&lt;li&gt;cluster_-1   当前词的前一个词聚类编号&lt;/li&gt;
+&lt;li&gt;word_1   当前词的后一个词本身&lt;/li&gt;
+&lt;li&gt;pos_1    当前词的后一个词词性&lt;/li&gt;
+&lt;li&gt;cluster_1   当前词的后一个词聚类编号&lt;/li&gt;
+&lt;li&gt;parent_edge_0   当前词的父边关系类型&lt;/li&gt;
+&lt;li&gt;child_edge_0   当前词的子边关系类型&lt;/li&gt;
+&lt;li&gt;word_parent_node_0   当前词的父节点词本身&lt;/li&gt;
+&lt;li&gt;pos_parent_node_0  当前词的父节点词性&lt;/li&gt;
+&lt;li&gt;cluster_parent_node_0 当前词的父节点词聚类编号&lt;/li&gt;
+&lt;li&gt;word_parent&lt;em&gt;node&lt;/em&gt;-1   当前词的前一个词的父节点词本身&lt;/li&gt;
+&lt;li&gt;pos_parent&lt;em&gt;node&lt;/em&gt;-1  当前词的前一个词的父节点词性&lt;/li&gt;
+&lt;li&gt;cluster_parent&lt;em&gt;node&lt;/em&gt;-1 当前词的前一个词的父节点词聚类编号&lt;/li&gt;
+&lt;li&gt;word_parent_node_1   当前词的后一个词的父节点词本身&lt;/li&gt;
+&lt;li&gt;pos_parent_node_1  当前词的后一个词的父节点词性&lt;/li&gt;
+&lt;li&gt;cluster_parent_node_1 当前词的后一个词的父节点词聚类编号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;计划下周：&lt;br&gt;把句子主干提取完善版本完成。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1、之前两周利用主动学习的方式训练集&lt;br&gt;2、标注数据分离一小部分作为测试集利用LR分类器调参。&lt;br&gt;3、利用最有参数训练标注语料生成特征权重weights。&lt;br&gt;3、使用weights获得主干提取demo。&lt;br&gt;周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想&lt;br&gt;分析原因：训练集过少、覆盖面过窄、稳定性不高&lt;br&gt;这周的主要工作：&lt;br&gt;1、提取多种语料库中的资源做人工语料标注&lt;br&gt;2、增加部分特征，扩大特征维度&lt;br&gt;3、特征结构统一化，例如某个词的特征用词典表示，预定义好所有的key。暂时定义如下：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="句子主干提取" scheme="http://yoursite.com/categories/%E5%8F%A5%E5%AD%90%E4%B8%BB%E5%B9%B2%E6%8F%90%E5%8F%96/"/>
+    
+    
+      <category term="逻辑回归" scheme="http://yoursite.com/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    
+      <category term="主动学习" scheme="http://yoursite.com/tags/%E4%B8%BB%E5%8A%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过主动学习的方法进行自动语料标注</title>
+    <link href="http://yoursite.com/2016/06/24/%E9%80%9A%E8%BF%87%E4%B8%BB%E5%8A%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E8%AF%AD%E6%96%99%E6%A0%87%E6%B3%A8/"/>
+    <id>http://yoursite.com/2016/06/24/通过主动学习的方法进行自动语料标注/</id>
+    <published>2016-06-23T16:00:00.000Z</published>
+    <updated>2016-07-08T10:50:19.000Z</updated>
+    
+    <content type="html">&lt;p&gt;   目前正在做句子主干提取方面的工作，主要方法是构建二分类器，提取句子分词之后每个词的特征来决定分词的取舍。由于需要标注大量的训练语料，采用人工的方法费时费力，于是采用主动学习的方法实现语料标注，我实现的步骤如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先对语料实现人工标注一部分&lt;/li&gt;
+&lt;li&gt;使用机器学习训练模型如SVM、LR对已经标注的语料训练，把为标注的语料作为测试集&lt;/li&gt;
+&lt;li&gt;为测试机样本产生标签及置信度（即标签的准确性的概率值）&lt;/li&gt;
+&lt;li&gt;通过观察为置信度设定一个阈值，当样本中的每个分词都满足这个阈值时，我们把这个自动标注好的测试样本加入到训练集中，在测试样本中取出这个样本&lt;/li&gt;
+&lt;li&gt;重复2-4步，直到剩余的测试样本中没有完全满足阈值的&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;输出剩余的测试样本&lt;/p&gt;
+&lt;p&gt; 刚开始我觉得这种方法非常好，经过测试，大概20次迭代之后大概4/5的样本已经标注好了&lt;br&gt;经过导师指导发现这种方法并不可靠，因为你新添加的训练集也是之前训练集产生的，反复迭代只会过拟合。我们应该设定一个比较低的阈值，找到测试集中非常不确定的测试样本（所有这些测试样本的置信度很低），通常来说这些样本是最有“价值”的样本，我们对这一小部分采用人工标注，并放入到训练集中，反复几次。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;   目前正在做句子主干提取方面的工作，主要方法是构建二分类器，提取句子分词之后每个词的特征来决定分词的取舍。由于需要标注大量的训练语料，采用人工的方法费时费力，于是采用主动学习的方法实现语料标注，我实现的步骤如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先对语料实现人工标注一部分&lt;/
+    
+    </summary>
+    
+      <category term="句子主干提取" scheme="http://yoursite.com/categories/%E5%8F%A5%E5%AD%90%E4%B8%BB%E5%B9%B2%E6%8F%90%E5%8F%96/"/>
+    
+    
+      <category term="逻辑回归" scheme="http://yoursite.com/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    
+      <category term="主动学习" scheme="http://yoursite.com/tags/%E4%B8%BB%E5%8A%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pagerank算法的具体实现</title>
+    <link href="http://yoursite.com/2016/06/19/pagerank%E7%AE%97%E6%B3%95%E7%9A%84%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://yoursite.com/2016/06/19/pagerank算法的具体实现/</id>
+    <published>2016-06-18T16:00:00.000Z</published>
+    <updated>2016-07-08T07:02:10.000Z</updated>
+    
+    <content type="html">&lt;p&gt;PageRank对网页排名的算法，曾是Google发家致富的法宝。以前虽然有实验过，但理解还是不透彻，这几天又看了一下，这里总结一下PageRank算法的基本原理。&lt;/p&gt;
+&lt;h3 id=&quot;1、什么是pagerank&quot;&gt;&lt;a href=&quot;#1、什么是pagerank&quot; class=&quot;headerlink&quot; title=&quot;1、什么是pagerank&quot;&gt;&lt;/a&gt;1、什么是pagerank&lt;/h3&gt;&lt;p&gt;PageRank的Page可是认为是网页，表示网页排名，也可以认为是Larry Page(google 产品经理)，因为他是这个算法的发明者之一，还是google CEO（^_^）。PageRank算法计算每一个网页的PageRank值，然后根据这个值的大小对网页的重要性进行排序。它的思想是模拟一个悠闲的上网者，上网者首先随机选择一个网页打开，然后在这个网页上呆了几分钟后，跳转到该网页所指向的链接，这样无所事事、漫无目的地在网页上跳来跳去，PageRank就是估计这个悠闲的上网者分布在各个网页上的概率。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2、最简单pagerank模型&quot;&gt;&lt;a href=&quot;#2、最简单pagerank模型&quot; class=&quot;headerlink&quot; title=&quot;2、最简单pagerank模型&quot;&gt;&lt;/a&gt;2、最简单pagerank模型&lt;/h3&gt;&lt;p&gt;互联网中的网页可以看出是一个有向图，其中网页是结点，如果网页A有链接到网页B，则存在一条有向边A-&amp;gt;B，下面是一个简单的示例：&lt;br&gt;&lt;img src=&quot;http://jbcdn2.b0.upaiyun.com/2014/06/ca4f4c96cd2294c797ddf585c4188074.jpg&quot; alt=&quot;pagerank示例&quot;&gt;&lt;br&gt;这个例子中只有四个网页，如果当前在A网页，那么悠闲的上网者将会各以1/3的概率跳转到B、C、D，这里的3表示A有3条出链，如果一个网页有k条出链，那么跳转任意一个出链上的概率是1/k，同理D到B、C的概率各为1/2，而B到C的概率为0。一般用转移矩阵表示上网者的跳转概率，如果用n表示网页的数目，则转移矩阵M是一个n*n的方阵；如果网页j有k个出链，那么对每一个出链指向的网页i，有M[i][j]=1/k，而其他网页的M[i][j]=0；上面示例图对应的转移矩阵如下：&lt;br&gt;&lt;img src=&quot;http://jbcdn2.b0.upaiyun.com/2014/06/4162fcd6ae797038923715cca812e3b9.jpg&quot; alt=&quot;pagerank示例&quot;&gt;&lt;br&gt;初试时，假设上网者在每一个网页的概率都是相等的，即1/n，于是初试的概率分布就是一个所有值都为1/n的n维列向量V0，用V0去右乘转移矩阵M，就得到了第一步之后上网者的概率分布向量MV0,（nXn）*(nX1)依然得到一个nX1的矩阵。下面是V1的计算过程：&lt;br&gt;&lt;img src=&quot;http://jbcdn2.b0.upaiyun.com/2014/06/4be2f7275f8b1880bbf99e08240fec7f.jpg&quot; alt=&quot;pagerank示例&quot;&gt;&lt;br&gt;注意矩阵M中M[i][j]不为0表示用一个链接从j指向i，M的第一行乘以V0，表示累加所有网页到网页A的概率即得到9/24。得到了V1后，再用V1去右乘M得到V2，一直下去，最终V会收敛，即Vn=MV(n-1)，上面的图示例，不断的迭代，最终V=[3/9,2/9,2/9,2/9]’：&lt;br&gt;&lt;img src=&quot;http://jbcdn2.b0.upaiyun.com/2014/06/2e906d4e9404a5aadf2938f001ad0ea7.jpg&quot; alt=&quot;pagerank示例&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;PageRank对网页排名的算法，曾是Google发家致富的法宝。以前虽然有实验过，但理解还是不透彻，这几天又看了一下，这里总结一下PageRank算法的基本原理。&lt;/p&gt;
+&lt;h3 id=&quot;1、什么是pagerank&quot;&gt;&lt;a href=&quot;#1、什么是pagerank&quot; class=&quot;headerlink&quot; title=&quot;1、什么是pagerank&quot;&gt;&lt;/a&gt;1、什么是pagerank&lt;/h3&gt;&lt;p&gt;PageRank的Page可是认为是网页，表示网页排名，也可以认为是Larry Page(google 产品经理)，因为他是这个算法的发明者之一，还是google CEO（^_^）。PageRank算法计算每一个网页的PageRank值，然后根据这个值的大小对网页的重要性进行排序。它的思想是模拟一个悠闲的上网者，上网者首先随机选择一个网页打开，然后在这个网页上呆了几分钟后，跳转到该网页所指向的链接，这样无所事事、漫无目的地在网页上跳来跳去，PageRank就是估计这个悠闲的上网者分布在各个网页上的概率。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="实体链接" scheme="http://yoursite.com/categories/%E5%AE%9E%E4%BD%93%E9%93%BE%E6%8E%A5/"/>
+    
+    
+      <category term="PageRank" scheme="http://yoursite.com/tags/PageRank/"/>
+    
+      <category term="Graph Model" scheme="http://yoursite.com/tags/Graph-Model/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>单链表反转问题</title>
+    <link href="http://yoursite.com/2016/06/15/%E5%8D%95%E9%93%BE%E8%A1%A8%E5%8F%8D%E8%BD%AC%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2016/06/15/单链表反转问题/</id>
+    <published>2016-06-14T16:00:00.000Z</published>
+    <updated>2016-07-08T06:55:23.000Z</updated>
+    
+    <content type="html">&lt;p&gt;题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。&lt;/p&gt;
+&lt;h3 id=&quot;1、非递归方式实现&quot;&gt;&lt;a href=&quot;#1、非递归方式实现&quot; class=&quot;headerlink&quot; title=&quot;1、非递归方式实现&quot;&gt;&lt;/a&gt;1、非递归方式实现&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ListNode * ReverseList(ListNode *  head)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   //如果链表为空或者链表中只有一个元素  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   if(head==NULL || head-&amp;gt;m_pNext==NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       return head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   ListNode * p=head-&amp;gt;m_pNext;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   ListNode * q=head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   while(p!=NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     q-&amp;gt;m_pNext=p-&amp;gt;m_pNext;//记录下p的下一个节点  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     p-&amp;gt;m_pNext=head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     head=p;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     p=q-&amp;gt;m_pNext;//准备将p的下一个节点放到表头  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   return head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;2、递归方式实现&quot;&gt;&lt;a href=&quot;#2、递归方式实现&quot; class=&quot;headerlink&quot; title=&quot;2、递归方式实现&quot;&gt;&lt;/a&gt;2、递归方式实现&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ListNode * ReverseList2(ListNode * head)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    //如果链表为空或者链表中只有一个元素  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    if(head==NULL || head-&amp;gt;m_pNext==NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        return head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    else  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       ListNode * newhead=ReverseList2(head-&amp;gt;m_pNext);//先反转后面的链表  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       head-&amp;gt;m_pNext-&amp;gt;m_pNext=head;//再将当前节点设置为其然来后面节点的后续节点  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       head-&amp;gt;m_pNext=NULL;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       return newhead;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;3、完整的代码流程&quot;&gt;&lt;a href=&quot;#3、完整的代码流程&quot; class=&quot;headerlink&quot; title=&quot;3、完整的代码流程&quot;&gt;&lt;/a&gt;3、完整的代码流程&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;40&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;41&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;42&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;43&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;44&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;45&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;46&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;47&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;48&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;49&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;50&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;51&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;52&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;53&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;54&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;55&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;56&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;57&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;58&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;59&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;60&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;61&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;62&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;63&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;64&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;65&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;66&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;67&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;68&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;69&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;70&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;71&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;72&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;73&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;74&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;75&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;76&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;77&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;78&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;79&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;80&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;81&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;82&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;83&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;84&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;// 反转链表.cpp : 定义控制台应用程序的入口点。  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#include &amp;quot;stdafx.h&amp;quot;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#include  &amp;lt;iostream&amp;gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;using namespace std;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;//定义一个链表节点  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt; typedef struct ListNode  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    int       m_nKey;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    struct ListNode * m_pNext;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;ListNode;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;//插入一个新节点到链表中(放在链表头部)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;void CreateList(ListNode * &amp;amp; head,int data)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    //创建新节点  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ListNode * p=(ListNode*)malloc(sizeof(ListNode));  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    p-&amp;gt;m_nKey=data;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    p-&amp;gt;m_pNext=NULL;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    if(head==NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        head=p;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        return;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    p-&amp;gt;m_pNext=head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    head=p;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;void  printList(ListNode* head)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   ListNode * p=head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   while(p!=NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      cout&amp;lt;&amp;lt;p-&amp;gt;m_nKey&amp;lt;&amp;lt;&amp;quot; &amp;quot;;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      p=p-&amp;gt;m_pNext;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   cout&amp;lt;&amp;lt;endl;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ListNode * ReverseList(ListNode *  head)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   //如果链表为空或者链表中只有一个元素  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   if(head==NULL || head-&amp;gt;m_pNext==NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       return head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   ListNode * p=head-&amp;gt;m_pNext;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   ListNode * q=head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   while(p!=NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     q-&amp;gt;m_pNext=p-&amp;gt;m_pNext;//记录下p的下一个节点  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     p-&amp;gt;m_pNext=head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     head=p;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     p=q-&amp;gt;m_pNext;//准备将p的下一个节点放到表头  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   return head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;//递归方式  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ListNode * ReverseList2(ListNode * head)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    //如果链表为空或者链表中只有一个元素  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    if(head==NULL || head-&amp;gt;m_pNext==NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        return head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    else  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       ListNode * newhead=ReverseList2(head-&amp;gt;m_pNext);//先反转后面的链表  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       head-&amp;gt;m_pNext-&amp;gt;m_pNext=head;//再将当前节点设置为其然来后面节点的后续节点  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       head-&amp;gt;m_pNext=NULL;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       return newhead;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;int _tmain(int argc, _TCHAR* argv[])  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ListNode * Head=NULL;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    for(int i=0;i&amp;lt;10;i++)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      CreateList(Head,i);  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    printList(Head);  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Head=ReverseList(Head);  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    printList(Head);  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    system(&amp;quot;PAUSE&amp;quot;);  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    return 0;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。&lt;/p&gt;
+&lt;h3 id=&quot;1、非递归方式实现&quot;&gt;&lt;a href=&quot;#1、非递归方式实现&quot; class=&quot;headerlink&quot; title=&quot;1、非递归方式实现&quot;&gt;&lt;/a&gt;1、非递归方式实现&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ListNode * ReverseList(ListNode *  head)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   //如果链表为空或者链表中只有一个元素  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   if(head==NULL || head-&amp;gt;m_pNext==NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       return head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   ListNode * p=head-&amp;gt;m_pNext;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   ListNode * q=head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   while(p!=NULL)  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#123;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     q-&amp;gt;m_pNext=p-&amp;gt;m_pNext;//记录下p的下一个节点  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     p-&amp;gt;m_pNext=head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     head=p;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     p=q-&amp;gt;m_pNext;//准备将p的下一个节点放到表头  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#125;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   return head;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+</feed>
