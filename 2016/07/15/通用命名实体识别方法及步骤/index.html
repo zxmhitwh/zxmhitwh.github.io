@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="逻辑回归,主动学习," />
+  <meta name="keywords" content="NER," />
 
 
 
@@ -104,16 +104,16 @@
 
 
 
-<meta name="description" content="1、之前两周利用主动学习的方式训练集2、标注数据分离一小部分作为测试集利用LR分类器调参。3、利用最有参数训练标注语料生成特征权重weights。3、使用weights获得主干提取demo。周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想分析原因：训练集过少、覆盖面过窄、稳定性不高这周的主要工作：1、提取多种语料库中的资源做人工语料标注2、增加部分特征，扩大特征维度3、特征结构统一">
+<meta name="description" content="一、项目简介：实体识别是nlp领域的基础工作，但是，目前了解到实体识别相关的项目主要都是基于词表来实现的。虽然词表的准确率很高，但是，词表的挖掘和维护的工作量也将很大，基于词表主要问题：1，词表覆盖率不全，需要不断的更新挖掘新词来补充词表；2，词表数目过大，随着业务的不断发展，挖掘的新词需要不断的扩充到词表中，词表会越来越大；3，词表的增大也伴随着维护的困难。所以，本项目的主要目的是从纯模型的角度">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用标注语料生成决策weights">
-<meta property="og:url" content="http://yoursite.com/2016/07/05/利用标注语料生成决策weights/index.html">
+<meta property="og:title" content="通用命名实体识别方法及步骤">
+<meta property="og:url" content="http://yoursite.com/2016/07/15/通用命名实体识别方法及步骤/index.html">
 <meta property="og:site_name" content=" John's Blog">
-<meta property="og:description" content="1、之前两周利用主动学习的方式训练集2、标注数据分离一小部分作为测试集利用LR分类器调参。3、利用最有参数训练标注语料生成特征权重weights。3、使用weights获得主干提取demo。周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想分析原因：训练集过少、覆盖面过窄、稳定性不高这周的主要工作：1、提取多种语料库中的资源做人工语料标注2、增加部分特征，扩大特征维度3、特征结构统一">
-<meta property="og:updated_time" content="2016-07-08T09:18:09.000Z">
+<meta property="og:description" content="一、项目简介：实体识别是nlp领域的基础工作，但是，目前了解到实体识别相关的项目主要都是基于词表来实现的。虽然词表的准确率很高，但是，词表的挖掘和维护的工作量也将很大，基于词表主要问题：1，词表覆盖率不全，需要不断的更新挖掘新词来补充词表；2，词表数目过大，随着业务的不断发展，挖掘的新词需要不断的扩充到词表中，词表会越来越大；3，词表的增大也伴随着维护的困难。所以，本项目的主要目的是从纯模型的角度">
+<meta property="og:updated_time" content="2016-07-18T02:43:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用标注语料生成决策weights">
-<meta name="twitter:description" content="1、之前两周利用主动学习的方式训练集2、标注数据分离一小部分作为测试集利用LR分类器调参。3、利用最有参数训练标注语料生成特征权重weights。3、使用weights获得主干提取demo。周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想分析原因：训练集过少、覆盖面过窄、稳定性不高这周的主要工作：1、提取多种语料库中的资源做人工语料标注2、增加部分特征，扩大特征维度3、特征结构统一">
+<meta name="twitter:title" content="通用命名实体识别方法及步骤">
+<meta name="twitter:description" content="一、项目简介：实体识别是nlp领域的基础工作，但是，目前了解到实体识别相关的项目主要都是基于词表来实现的。虽然词表的准确率很高，但是，词表的挖掘和维护的工作量也将很大，基于词表主要问题：1，词表覆盖率不全，需要不断的更新挖掘新词来补充词表；2，词表数目过大，随着业务的不断发展，挖掘的新词需要不断的扩充到词表中，词表会越来越大；3，词表的增大也伴随着维护的困难。所以，本项目的主要目的是从纯模型的角度">
 
 
 
@@ -134,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/05/利用标注语料生成决策weights/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/15/通用命名实体识别方法及步骤/"/>
 
-  <title> 利用标注语料生成决策weights |  John's Blog </title>
+  <title> 通用命名实体识别方法及步骤 |  John's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +276,7 @@
             
             
               
-                利用标注语料生成决策weights
+                通用命名实体识别方法及步骤
               
             
           </h1>
@@ -288,8 +288,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-05T00:00:00+08:00" content="2016-07-05">
-              2016-07-05
+            <time itemprop="dateCreated" datetime="2016-07-15T00:00:00+08:00" content="2016-07-15">
+              2016-07-15
             </time>
           </span>
 
@@ -302,8 +302,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/句子主干提取/" itemprop="url" rel="index">
-                    <span itemprop="name">句子主干提取</span>
+                  <a href="/categories/命名实体识别/" itemprop="url" rel="index">
+                    <span itemprop="name">命名实体识别</span>
                   </a>
                 </span>
 
@@ -318,8 +318,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/05/利用标注语料生成决策weights/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/利用标注语料生成决策weights/" itemprop="commentsCount"></span>
+                <a href="/2016/07/15/通用命名实体识别方法及步骤/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/15/通用命名实体识别方法及步骤/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -342,32 +342,10 @@
       
 
       
-        <p>1、之前两周利用主动学习的方式训练集<br>2、标注数据分离一小部分作为测试集利用LR分类器调参。<br>3、利用最有参数训练标注语料生成特征权重weights。<br>3、使用weights获得主干提取demo。<br>周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想<br>分析原因：训练集过少、覆盖面过窄、稳定性不高<br>这周的主要工作：<br>1、提取多种语料库中的资源做人工语料标注<br>2、增加部分特征，扩大特征维度<br>3、特征结构统一化，例如某个词的特征用词典表示，预定义好所有的key。暂时定义如下：</p>
-<a id="more"></a>
-<ul>
-<li>列表内容</li>
-<li>word_0  当前词本身</li>
-<li>pos_0  当前词本身词性</li>
-<li>cluster_0 当前词本身聚类编号</li>
-<li>word_-1  当前词的前一个词本身</li>
-<li>pos_-1   当前词的前一个词词性</li>
-<li>cluster_-1   当前词的前一个词聚类编号</li>
-<li>word_1   当前词的后一个词本身</li>
-<li>pos_1    当前词的后一个词词性</li>
-<li>cluster_1   当前词的后一个词聚类编号</li>
-<li>parent_edge_0   当前词的父边关系类型</li>
-<li>child_edge_0   当前词的子边关系类型</li>
-<li>word_parent_node_0   当前词的父节点词本身</li>
-<li>pos_parent_node_0  当前词的父节点词性</li>
-<li>cluster_parent_node_0 当前词的父节点词聚类编号</li>
-<li>word_parent<em>node</em>-1   当前词的前一个词的父节点词本身</li>
-<li>pos_parent<em>node</em>-1  当前词的前一个词的父节点词性</li>
-<li>cluster_parent<em>node</em>-1 当前词的前一个词的父节点词聚类编号</li>
-<li>word_parent_node_1   当前词的后一个词的父节点词本身</li>
-<li>pos_parent_node_1  当前词的后一个词的父节点词性</li>
-<li>cluster_parent_node_1 当前词的后一个词的父节点词聚类编号</li>
-</ul>
-<p>计划下周：<br>把句子主干提取完善版本完成。</p>
+        <h1 id="一、项目简介："><a href="#一、项目简介：" class="headerlink" title="一、项目简介："></a>一、项目简介：</h1><p>实体识别是nlp领域的基础工作，但是，目前了解到实体识别相关的项目主要都是基于词表来实现的。虽然词表的准确率很高，但是，词表的挖掘和维护的工作量也将很大，基于词表主要问题：1，词表覆盖率不全，需要不断的更新挖掘新词来补充词表；2，词表数目过大，随着业务的不断发展，挖掘的新词需要不断的扩充到词表中，词表会越来越大；3，词表的增大也伴随着维护的困难。所以，本项目的主要目的是从纯模型的角度来解决以上问题。传统的实体识别项目主要解决的是人名，地名，机构名，这三大实体类别。<br><a id="more"></a></p>
+<h1 id="二、主要步骤："><a href="#二、主要步骤：" class="headerlink" title="二、主要步骤："></a>二、主要步骤：</h1><p>首先，使用分词系统对文本进行分词，根据各自的任务不同选择是否需要词性特征。考虑本文处理的是短文本query，基本上都是一个或几个实体词，做为query。词性在这个场景下效果不是特别明显，所以，没有采用词性特征。由于使用CRF模型学习与预测，特征计算出来为连续型变量，因此，对结果进行离散化处理，分析各个特征的分布，对特征离散化结果再进一步合并处理。实体识别任务等同于实体边界识别，所以在边界特征的选取上对最终效果会有非常明显的影响。主要提供了一些通用的边界特征和紧密度特征的提取程序。 </p>
+<h2 id="1-特征提取"><a href="#1-特征提取" class="headerlink" title="1.特征提取"></a>1.特征提取</h2><p>左熵：表示的是当前词，左边搭配的词数量的多少。左熵的值越大，表示这个词越有可能是右边界（实体的后缀词），与左边的词可能构成实体。<br>右熵：表示的是当前词，右边搭配词的数量的多少。右熵的值越大，表示这个词越有可能是左边界（实体前缀，或者，单独的实体），与右边的词可能构成实体。<br>点互信息：表示的是两个词的紧密度，本文特征提取的是当前词与前一个词的互信息。值越大，表示两个词越紧密，可能是一个实体词或实体词的一部分。等于零，表示两个词相互独立。值越小，表示两个词互斥出现。因为，考虑到最终互信息词表过大，所以，把小于一定阈值的互信息删除，只考虑紧密度比较大的词。<br>还有其他类型的特征比如，词长度，词性等特征。还有自定义的特征：实体词的前缀特征，实体词的后缀特征。可以根据需要识别的类型，从已收集的词表或者再使用一些挖掘词表的方法。从中提取后缀词，后缀字，前缀词，前缀字特征以用来辅助确定实体的边界信息。<br>组合特征：经测试特征模板中添加一部分组合特征对效果提升比较明显。比如增加：1，当前词的右熵与下一个词的左熵。2，当前词的后缀词特征之间的组合。其他可根据自己的应用测试不同的组合情况。</p>
+<h2 id="2-语料标注"><a href="#2-语料标注" class="headerlink" title="2.语料标注"></a>2.语料标注</h2><p> 模型训练阶段使用提取特征框架，将主动学习中已经标记好的语料转换为CRF需要的格式。本文采用BIO标记识别的位置信息。B表示实体开始的词，I表示实体中间的词。O表示非实体词。当标记语料比较多的时候，还可以使用BIEO或BIESO这种方式来标记实体。E表示实体结束词，S表示当前词是一个实体，可以提供更为丰富的边界特征，提高边界识别的准确率。本文标记语料只有5000条数据，测试了BIEO或BIESO的方式，数据稀疏比较严重，所以还是使用BIO作为标记语料。</p>
 
       
     </div>
@@ -389,9 +367,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/逻辑回归/" rel="tag">#逻辑回归</a>
-          
-            <a href="/tags/主动学习/" rel="tag">#主动学习</a>
+            <a href="/tags/NER/" rel="tag">#NER</a>
           
         </div>
       
@@ -400,17 +376,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/24/通过主动学习的方法进行自动语料标注/" rel="next" title="通过主动学习的方法进行自动语料标注">
-                <i class="fa fa-chevron-left"></i> 通过主动学习的方法进行自动语料标注
+              <a href="/2016/07/11/通俗理解卷积神经网络(CNN)/" rel="next" title="通俗理解卷积神经网络(CNN)[转载]">
+                <i class="fa fa-chevron-left"></i> 通俗理解卷积神经网络(CNN)[转载]
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/09/C:C++中计算程序运行时间的方法/" rel="prev" title="C/C++中计算程序运行时间的方法">
-                C/C++中计算程序运行时间的方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -436,8 +408,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/05/利用标注语料生成决策weights/"
-           data-title="利用标注语料生成决策weights" data-url="http://yoursite.com/2016/07/05/利用标注语料生成决策weights/">
+      <div class="ds-thread" data-thread-key="2016/07/15/通用命名实体识别方法及步骤/"
+           data-title="通用命名实体识别方法及步骤" data-url="http://yoursite.com/2016/07/15/通用命名实体识别方法及步骤/">
       </div>
     
   </div>
@@ -573,7 +545,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、项目简介："><span class="nav-number">1.</span> <span class="nav-text">一、项目简介：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、主要步骤："><span class="nav-number">2.</span> <span class="nav-text">二、主要步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-特征提取"><span class="nav-number">2.1.</span> <span class="nav-text">1.特征提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-语料标注"><span class="nav-number">2.2.</span> <span class="nav-text">2.语料标注</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-14T07:30:56.000Z</updated>
+  <updated>2016-07-18T02:43:27.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通用命名实体识别方法及步骤</title>
+    <link href="http://yoursite.com/2016/07/15/%E9%80%9A%E7%94%A8%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB%E6%96%B9%E6%B3%95%E5%8F%8A%E6%AD%A5%E9%AA%A4/"/>
+    <id>http://yoursite.com/2016/07/15/通用命名实体识别方法及步骤/</id>
+    <published>2016-07-14T16:00:00.000Z</published>
+    <updated>2016-07-18T02:43:27.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;一、项目简介：&quot;&gt;&lt;a href=&quot;#一、项目简介：&quot; class=&quot;headerlink&quot; title=&quot;一、项目简介：&quot;&gt;&lt;/a&gt;一、项目简介：&lt;/h1&gt;&lt;p&gt;实体识别是nlp领域的基础工作，但是，目前了解到实体识别相关的项目主要都是基于词表来实现的。虽然词表的准确率很高，但是，词表的挖掘和维护的工作量也将很大，基于词表主要问题：1，词表覆盖率不全，需要不断的更新挖掘新词来补充词表；2，词表数目过大，随着业务的不断发展，挖掘的新词需要不断的扩充到词表中，词表会越来越大；3，词表的增大也伴随着维护的困难。所以，本项目的主要目的是从纯模型的角度来解决以上问题。传统的实体识别项目主要解决的是人名，地名，机构名，这三大实体类别。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;二、主要步骤：&quot;&gt;&lt;a href=&quot;#二、主要步骤：&quot; class=&quot;headerlink&quot; title=&quot;二、主要步骤：&quot;&gt;&lt;/a&gt;二、主要步骤：&lt;/h1&gt;&lt;p&gt;首先，使用分词系统对文本进行分词，根据各自的任务不同选择是否需要词性特征。考虑本文处理的是短文本query，基本上都是一个或几个实体词，做为query。词性在这个场景下效果不是特别明显，所以，没有采用词性特征。由于使用CRF模型学习与预测，特征计算出来为连续型变量，因此，对结果进行离散化处理，分析各个特征的分布，对特征离散化结果再进一步合并处理。实体识别任务等同于实体边界识别，所以在边界特征的选取上对最终效果会有非常明显的影响。主要提供了一些通用的边界特征和紧密度特征的提取程序。 &lt;/p&gt;
+&lt;h2 id=&quot;1-特征提取&quot;&gt;&lt;a href=&quot;#1-特征提取&quot; class=&quot;headerlink&quot; title=&quot;1.特征提取&quot;&gt;&lt;/a&gt;1.特征提取&lt;/h2&gt;&lt;p&gt;左熵：表示的是当前词，左边搭配的词数量的多少。左熵的值越大，表示这个词越有可能是右边界（实体的后缀词），与左边的词可能构成实体。&lt;br&gt;右熵：表示的是当前词，右边搭配词的数量的多少。右熵的值越大，表示这个词越有可能是左边界（实体前缀，或者，单独的实体），与右边的词可能构成实体。&lt;br&gt;点互信息：表示的是两个词的紧密度，本文特征提取的是当前词与前一个词的互信息。值越大，表示两个词越紧密，可能是一个实体词或实体词的一部分。等于零，表示两个词相互独立。值越小，表示两个词互斥出现。因为，考虑到最终互信息词表过大，所以，把小于一定阈值的互信息删除，只考虑紧密度比较大的词。&lt;br&gt;还有其他类型的特征比如，词长度，词性等特征。还有自定义的特征：实体词的前缀特征，实体词的后缀特征。可以根据需要识别的类型，从已收集的词表或者再使用一些挖掘词表的方法。从中提取后缀词，后缀字，前缀词，前缀字特征以用来辅助确定实体的边界信息。&lt;br&gt;组合特征：经测试特征模板中添加一部分组合特征对效果提升比较明显。比如增加：1，当前词的右熵与下一个词的左熵。2，当前词的后缀词特征之间的组合。其他可根据自己的应用测试不同的组合情况。&lt;/p&gt;
+&lt;h2 id=&quot;2-语料标注&quot;&gt;&lt;a href=&quot;#2-语料标注&quot; class=&quot;headerlink&quot; title=&quot;2.语料标注&quot;&gt;&lt;/a&gt;2.语料标注&lt;/h2&gt;&lt;p&gt; 模型训练阶段使用提取特征框架，将主动学习中已经标记好的语料转换为CRF需要的格式。本文采用BIO标记识别的位置信息。B表示实体开始的词，I表示实体中间的词。O表示非实体词。当标记语料比较多的时候，还可以使用BIEO或BIESO这种方式来标记实体。E表示实体结束词，S表示当前词是一个实体，可以提供更为丰富的边界特征，提高边界识别的准确率。本文标记语料只有5000条数据，测试了BIEO或BIESO的方式，数据稀疏比较严重，所以还是使用BIO作为标记语料。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、项目简介：&quot;&gt;&lt;a href=&quot;#一、项目简介：&quot; class=&quot;headerlink&quot; title=&quot;一、项目简介：&quot;&gt;&lt;/a&gt;一、项目简介：&lt;/h1&gt;&lt;p&gt;实体识别是nlp领域的基础工作，但是，目前了解到实体识别相关的项目主要都是基于词表来实现的。虽然词表的准确率很高，但是，词表的挖掘和维护的工作量也将很大，基于词表主要问题：1，词表覆盖率不全，需要不断的更新挖掘新词来补充词表；2，词表数目过大，随着业务的不断发展，挖掘的新词需要不断的扩充到词表中，词表会越来越大；3，词表的增大也伴随着维护的困难。所以，本项目的主要目的是从纯模型的角度来解决以上问题。传统的实体识别项目主要解决的是人名，地名，机构名，这三大实体类别。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="命名实体识别" scheme="http://yoursite.com/categories/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB/"/>
+    
+    
+      <category term="NER" scheme="http://yoursite.com/tags/NER/"/>
+    
+  </entry>
   
   <entry>
     <title>通俗理解卷积神经网络(CNN)[转载]</title>
