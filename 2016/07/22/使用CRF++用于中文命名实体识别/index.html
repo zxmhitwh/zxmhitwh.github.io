@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NER," />
+  <meta name="keywords" content="CRF," />
 
 
 
@@ -104,16 +104,16 @@
 
 
 
-<meta name="description" content="一、项目简介：实体识别是nlp领域的基础工作，但是，目前了解到实体识别相关的项目主要都是基于词表来实现的。虽然词表的准确率很高，但是，词表的挖掘和维护的工作量也将很大，基于词表主要问题：1，词表覆盖率不全，需要不断的更新挖掘新词来补充词表；2，词表数目过大，随着业务的不断发展，挖掘的新词需要不断的扩充到词表中，词表会越来越大；3，词表的增大也伴随着维护的困难。所以，本项目的主要目的是从纯模型的角度">
+<meta name="description" content="1.语料格式CRF++ 可以用于分词、词性标注和命名实体识别等任务。官方文档: 我们使用msra 2007用于命名实体识别的训练集和测试集，分为3个类别：人名(PER)、地名(LOC)、机构名(ORG),采用标准的BIEO方式处理，格式如下：12345678910111213141516171819202122是	O根	O据	O宋	B-PER神	I-PER宗	E-PER时	O，	O官	O拜	O礼">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通用命名实体识别方法及步骤">
-<meta property="og:url" content="http://yoursite.com/2016/07/15/通用命名实体识别方法及步骤/index.html">
+<meta property="og:title" content="使用CRF++用于中文命名实体识别">
+<meta property="og:url" content="http://yoursite.com/2016/07/22/使用CRF++用于中文命名实体识别/index.html">
 <meta property="og:site_name" content=" John's Blog">
-<meta property="og:description" content="一、项目简介：实体识别是nlp领域的基础工作，但是，目前了解到实体识别相关的项目主要都是基于词表来实现的。虽然词表的准确率很高，但是，词表的挖掘和维护的工作量也将很大，基于词表主要问题：1，词表覆盖率不全，需要不断的更新挖掘新词来补充词表；2，词表数目过大，随着业务的不断发展，挖掘的新词需要不断的扩充到词表中，词表会越来越大；3，词表的增大也伴随着维护的困难。所以，本项目的主要目的是从纯模型的角度">
-<meta property="og:updated_time" content="2016-07-18T02:43:27.000Z">
+<meta property="og:description" content="1.语料格式CRF++ 可以用于分词、词性标注和命名实体识别等任务。官方文档: 我们使用msra 2007用于命名实体识别的训练集和测试集，分为3个类别：人名(PER)、地名(LOC)、机构名(ORG),采用标准的BIEO方式处理，格式如下：12345678910111213141516171819202122是	O根	O据	O宋	B-PER神	I-PER宗	E-PER时	O，	O官	O拜	O礼">
+<meta property="og:updated_time" content="2016-07-25T08:00:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通用命名实体识别方法及步骤">
-<meta name="twitter:description" content="一、项目简介：实体识别是nlp领域的基础工作，但是，目前了解到实体识别相关的项目主要都是基于词表来实现的。虽然词表的准确率很高，但是，词表的挖掘和维护的工作量也将很大，基于词表主要问题：1，词表覆盖率不全，需要不断的更新挖掘新词来补充词表；2，词表数目过大，随着业务的不断发展，挖掘的新词需要不断的扩充到词表中，词表会越来越大；3，词表的增大也伴随着维护的困难。所以，本项目的主要目的是从纯模型的角度">
+<meta name="twitter:title" content="使用CRF++用于中文命名实体识别">
+<meta name="twitter:description" content="1.语料格式CRF++ 可以用于分词、词性标注和命名实体识别等任务。官方文档: 我们使用msra 2007用于命名实体识别的训练集和测试集，分为3个类别：人名(PER)、地名(LOC)、机构名(ORG),采用标准的BIEO方式处理，格式如下：12345678910111213141516171819202122是	O根	O据	O宋	B-PER神	I-PER宗	E-PER时	O，	O官	O拜	O礼">
 
 
 
@@ -134,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/15/通用命名实体识别方法及步骤/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/22/使用CRF++用于中文命名实体识别/"/>
 
-  <title> 通用命名实体识别方法及步骤 |  John's Blog </title>
+  <title> 使用CRF++用于中文命名实体识别 |  John's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +276,7 @@
             
             
               
-                通用命名实体识别方法及步骤
+                使用CRF++用于中文命名实体识别
               
             
           </h1>
@@ -288,8 +288,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-15T00:00:00+08:00" content="2016-07-15">
-              2016-07-15
+            <time itemprop="dateCreated" datetime="2016-07-22T00:00:00+08:00" content="2016-07-22">
+              2016-07-22
             </time>
           </span>
 
@@ -318,8 +318,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/15/通用命名实体识别方法及步骤/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/15/通用命名实体识别方法及步骤/" itemprop="commentsCount"></span>
+                <a href="/2016/07/22/使用CRF++用于中文命名实体识别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/22/使用CRF++用于中文命名实体识别/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -342,10 +342,15 @@
       
 
       
-        <h1 id="一、项目简介："><a href="#一、项目简介：" class="headerlink" title="一、项目简介："></a>一、项目简介：</h1><p>实体识别是nlp领域的基础工作，但是，目前了解到实体识别相关的项目主要都是基于词表来实现的。虽然词表的准确率很高，但是，词表的挖掘和维护的工作量也将很大，基于词表主要问题：1，词表覆盖率不全，需要不断的更新挖掘新词来补充词表；2，词表数目过大，随着业务的不断发展，挖掘的新词需要不断的扩充到词表中，词表会越来越大；3，词表的增大也伴随着维护的困难。所以，本项目的主要目的是从纯模型的角度来解决以上问题。传统的实体识别项目主要解决的是人名，地名，机构名，这三大实体类别。<br><a id="more"></a></p>
-<h1 id="二、主要步骤："><a href="#二、主要步骤：" class="headerlink" title="二、主要步骤："></a>二、主要步骤：</h1><p>首先，使用分词系统对文本进行分词，根据各自的任务不同选择是否需要词性特征。考虑本文处理的是短文本query，基本上都是一个或几个实体词，做为query。词性在这个场景下效果不是特别明显，所以，没有采用词性特征。由于使用CRF模型学习与预测，特征计算出来为连续型变量，因此，对结果进行离散化处理，分析各个特征的分布，对特征离散化结果再进一步合并处理。实体识别任务等同于实体边界识别，所以在边界特征的选取上对最终效果会有非常明显的影响。主要提供了一些通用的边界特征和紧密度特征的提取程序。 </p>
-<h2 id="1-特征提取"><a href="#1-特征提取" class="headerlink" title="1.特征提取"></a>1.特征提取</h2><p>左熵：表示的是当前词，左边搭配的词数量的多少。左熵的值越大，表示这个词越有可能是右边界（实体的后缀词），与左边的词可能构成实体。<br>右熵：表示的是当前词，右边搭配词的数量的多少。右熵的值越大，表示这个词越有可能是左边界（实体前缀，或者，单独的实体），与右边的词可能构成实体。<br>点互信息：表示的是两个词的紧密度，本文特征提取的是当前词与前一个词的互信息。值越大，表示两个词越紧密，可能是一个实体词或实体词的一部分。等于零，表示两个词相互独立。值越小，表示两个词互斥出现。因为，考虑到最终互信息词表过大，所以，把小于一定阈值的互信息删除，只考虑紧密度比较大的词。<br>还有其他类型的特征比如，词长度，词性等特征。还有自定义的特征：实体词的前缀特征，实体词的后缀特征。可以根据需要识别的类型，从已收集的词表或者再使用一些挖掘词表的方法。从中提取后缀词，后缀字，前缀词，前缀字特征以用来辅助确定实体的边界信息。<br>组合特征：经测试特征模板中添加一部分组合特征对效果提升比较明显。比如增加：1，当前词的右熵与下一个词的左熵。2，当前词的后缀词特征之间的组合。其他可根据自己的应用测试不同的组合情况。</p>
-<h2 id="2-语料标注"><a href="#2-语料标注" class="headerlink" title="2.语料标注"></a>2.语料标注</h2><p> 模型训练阶段使用提取特征框架，将主动学习中已经标记好的语料转换为CRF需要的格式。本文采用BIO标记识别的位置信息。B表示实体开始的词，I表示实体中间的词。O表示非实体词。当标记语料比较多的时候，还可以使用BIEO或BIESO这种方式来标记实体。E表示实体结束词，S表示当前词是一个实体，可以提供更为丰富的边界特征，提高边界识别的准确率。本文标记语料只有5000条数据，测试了BIEO或BIESO的方式，数据稀疏比较严重，所以还是使用BIO作为标记语料。</p>
+        <h1 id="1-语料格式"><a href="#1-语料格式" class="headerlink" title="1.语料格式"></a>1.语料格式</h1><p>CRF++ 可以用于分词、词性标注和命名实体识别等任务。<br>官方文档: <a href="https://taku910.github.io/crfpp/" title="CRF++" target="_blank" rel="external"></a><br>我们使用msra 2007用于命名实体识别的训练集和测试集，分为3个类别：人名(PER)、地名(LOC)、机构名(ORG),采用标准的BIEO方式处理，格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">是	O</div><div class="line">根	O</div><div class="line">据	O</div><div class="line">宋	B-PER</div><div class="line">神	I-PER</div><div class="line">宗	E-PER</div><div class="line">时	O</div><div class="line">，	O</div><div class="line">官	O</div><div class="line">拜	O</div><div class="line">礼	B-ORG</div><div class="line">部	E-ORG</div><div class="line">郎	O</div><div class="line">杨	B-PER</div><div class="line">次	I-PER</div><div class="line">公	E-PER</div><div class="line">的	O</div><div class="line">“	O</div><div class="line">牧	O</div><div class="line">牛	O</div><div class="line">颂	O</div><div class="line">”	O</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h1 id="2-模板构建"><a href="#2-模板构建" class="headerlink" title="2.模板构建"></a>2.模板构建</h1><p>例如，对于模板:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># Unigram</div><div class="line">U00:%x[-2,0]</div><div class="line">U01:%x[-1,0]</div><div class="line">U02:%x[0,0]</div><div class="line">U03:%x[1,0]</div><div class="line">U04:%x[2,0]</div><div class="line">U05:%x[-2,0]/%x[-1,0]/%x[0,0]</div><div class="line">U06:%x[-1,0]/%x[0,0]/%x[1,0]</div><div class="line">U07:%x[0,0]/%x[1,0]/%x[2,0]</div><div class="line">U08:%x[-1,0]/%x[0,0]                                          </div><div class="line">U09:%x[0,0]/%x[1,0]</div><div class="line"></div><div class="line"># Bigram</div><div class="line">B</div></pre></td></tr></table></figure></p>
+<p>在特征模板文件中，每一行(如U00:%x[-2,0]）代表一个特征，而宏“%x[行位置,列位置]”则代表了相对于当前指向的token的行偏移和列的绝对位置.<br>CRF++里将特征分成两种类型，一种是Unigram的，“U”起头，另外一种是Bigram的，“B”起头。对于Unigram的特征，假如一个特征模板是”U01:%x[-1,0]“, CRF++会自动的生成一组特征函数(func1 … funcN) 集合:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">func1 = if (output = B and feature=&quot;U01&quot;) return 1 else return 0</div><div class="line">func2 = if (output = I and feature=&quot;U01&quot;) return 1 else return 0</div><div class="line">func3 = if (output = E and feature=&quot;U01&quot;) return 1 else return 0</div><div class="line">....</div></pre></td></tr></table></figure></p>
+<p>生成的特征函数的数目 = (L * N)，其中L是输出的类型的个数，这里是B,I,E这几个tag，N是通过模板扩展出来的所有单个字符串(特征）的个数。<br>而Bigram特征主要是当前的token和前面一个位置token的自动组合生成的bigram特征集合。最后需要注意的是U01和U02这些标志位，与特征token组合到一起主要是区分“U01:問”和“U02:問”这类特征，虽然抽取的”字”特征是一样的，但是在CRF++中这是有区别的特征。</p>
+<h1 id="3-执行命令"><a href="#3-执行命令" class="headerlink" title="3.执行命令"></a>3.执行命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">../../crf_learn -f 3 -c 4.0 template train.data model  </div><div class="line">../../crf_test -m model test.data  </div><div class="line">  </div><div class="line">../../crf_learn -a MIRA -f 3 template train.data model  </div><div class="line">../../crf_test -m model test.data</div></pre></td></tr></table></figure>
+<h1 id="4-执行结果"><a href="#4-执行结果" class="headerlink" title="4.执行结果"></a>4.执行结果</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">CRF++: Yet Another CRF Tool Kit</div><div class="line">Copyright(C) 2005 Taku Kudo, All rights reserved.</div><div class="line"></div><div class="line">reading training data: 100.. 200.. 300.. 400.. 500.. 600.. 700.. 800.. </div><div class="line">Done! 1.94 s</div><div class="line"></div><div class="line">Number of sentences: 823</div><div class="line">Number of features:  1075862</div><div class="line">Number of thread(s): 1</div><div class="line">Freq:                1</div><div class="line">eta:                 0.00010</div><div class="line">C:                   1.00000</div><div class="line">shrinking size:      20</div><div class="line">Algorithm:           CRF</div><div class="line"></div><div class="line">iter=0 terr=0.99103 serr=1.00000 obj=54318.36623 diff=1.00000</div><div class="line">iter=1 terr=0.35260 serr=0.98177 obj=44996.53537 diff=0.17161</div><div class="line">iter=2 terr=0.35260 serr=0.98177 obj=21032.70195 diff=0.53257</div><div class="line">iter=3 terr=0.23879 serr=0.94532 obj=13642.32067 diff=0.35138</div><div class="line">iter=4 terr=0.15324 serr=0.88700 obj=8985.70071 diff=0.34134</div><div class="line">iter=5 terr=0.11605 serr=0.80680 obj=7118.89846 diff=0.20775</div><div class="line">iter=6 terr=0.09305 serr=0.72175 obj=5531.31015 diff=0.22301</div><div class="line">iter=7 terr=0.08132 serr=0.68408 obj=4618.24644 diff=0.16507</div><div class="line">iter=8 terr=0.06228 serr=0.59174 obj=3742.93171 diff=0.18953</div></pre></td></tr></table></figure>
+<p>其中：<br>iter: 迭代的次数<br>terr: 预测的标注错误率<br>serr: 预测的句子标注错误率<br>obj: 当前目标值，当达到一定值时，迭代停止<br>diff: 与上一次obj的相对diff<br>有4个可调的参数来控制训练过程:<br>-a CRF-L2 or CRF-L1:正则化项设置<br>-c float: 用于平衡过拟合和欠拟合<br>-f NUM: 用于控制迭代的次数，不少于NUM次<br>-p NUM: 用于控制线程的个数<br>CRF++ 支持single-best MIRA training<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">crf_test -v1 -m model test.data| head</div></pre></td></tr></table></figure></p>
+<p>-v1: 显示预测的目标概率<br>-v2: 显示所有的预测概率</p>
 
       
     </div>
@@ -367,7 +372,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NER/" rel="tag">#NER</a>
+            <a href="/tags/CRF/" rel="tag">#CRF</a>
           
         </div>
       
@@ -376,17 +381,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/11/通俗理解卷积神经网络(CNN)/" rel="next" title="通俗理解卷积神经网络(CNN)[转载]">
-                <i class="fa fa-chevron-left"></i> 通俗理解卷积神经网络(CNN)[转载]
+              <a href="/2016/07/15/通用命名实体识别方法及步骤/" rel="next" title="通用命名实体识别方法及步骤">
+                <i class="fa fa-chevron-left"></i> 通用命名实体识别方法及步骤
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/22/使用CRF++用于中文命名实体识别/" rel="prev" title="使用CRF++用于中文命名实体识别">
-                使用CRF++用于中文命名实体识别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -412,8 +413,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/15/通用命名实体识别方法及步骤/"
-           data-title="通用命名实体识别方法及步骤" data-url="http://yoursite.com/2016/07/15/通用命名实体识别方法及步骤/">
+      <div class="ds-thread" data-thread-key="2016/07/22/使用CRF++用于中文命名实体识别/"
+           data-title="使用CRF++用于中文命名实体识别" data-url="http://yoursite.com/2016/07/22/使用CRF++用于中文命名实体识别/">
       </div>
     
   </div>
@@ -549,7 +550,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、项目简介："><span class="nav-number">1.</span> <span class="nav-text">一、项目简介：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、主要步骤："><span class="nav-number">2.</span> <span class="nav-text">二、主要步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-特征提取"><span class="nav-number">2.1.</span> <span class="nav-text">1.特征提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-语料标注"><span class="nav-number">2.2.</span> <span class="nav-text">2.语料标注</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-语料格式"><span class="nav-number">1.</span> <span class="nav-text">1.语料格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-模板构建"><span class="nav-number">2.</span> <span class="nav-text">2.模板构建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-执行命令"><span class="nav-number">3.</span> <span class="nav-text">3.执行命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-执行结果"><span class="nav-number">4.</span> <span class="nav-text">4.执行结果</span></a></li></ol></div>
             
           </div>
         </section>
