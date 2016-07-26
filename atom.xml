@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-26T05:46:41.000Z</updated>
+  <updated>2016-07-26T05:48:30.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>依存句法分析</title>
-    <link href="http://yoursite.com/2016/07/26/%E4%BE%9D%E5%AD%98%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90/"/>
-    <id>http://yoursite.com/2016/07/26/依存句法分析/</id>
-    <published>2016-07-26T04:05:28.000Z</published>
-    <updated>2016-07-26T05:46:41.000Z</updated>
+    <link href="http://yoursite.com/2016/07/24/%E4%BE%9D%E5%AD%98%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90/"/>
+    <id>http://yoursite.com/2016/07/24/依存句法分析/</id>
+    <published>2016-07-23T16:00:00.000Z</published>
+    <updated>2016-07-26T05:48:30.000Z</updated>
     
     <content type="html">&lt;p&gt;主要进行句子的依存分析，标注出句子中各词语之间的语法关系，如下图，如SBV主谓关系，VOB动宾关系，COO并列关系等，得到的依存关系可以用于其他多项NLP任务，如信息抽取、情感分析、自动问答、机器翻译等。&lt;br&gt;&lt;img src=&quot;images/jufafenxi.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;依存文法最早L.Tesniere在其著作《结构句法基础》（1959年）中提出，通过分析语言单位内成分之间的依存关系揭示其句法结构，主张句子中核心动词是支配其它成分的中心成分，而它本身却不受其它任何成分的支配，所有受支配成分都以某种依存关系从属于支配者。依存语法中关于依存关系有四条公理，在处理中文信息的研究中，中国学者提出了依存关系的第五条公理，如下：&lt;/p&gt;
