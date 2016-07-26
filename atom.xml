@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-25T08:00:53.000Z</updated>
+  <updated>2016-07-26T05:46:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>依存句法分析</title>
+    <link href="http://yoursite.com/2016/07/26/%E4%BE%9D%E5%AD%98%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90/"/>
+    <id>http://yoursite.com/2016/07/26/依存句法分析/</id>
+    <published>2016-07-26T04:05:28.000Z</published>
+    <updated>2016-07-26T05:46:41.000Z</updated>
+    
+    <content type="html">&lt;p&gt;主要进行句子的依存分析，标注出句子中各词语之间的语法关系，如下图，如SBV主谓关系，VOB动宾关系，COO并列关系等，得到的依存关系可以用于其他多项NLP任务，如信息抽取、情感分析、自动问答、机器翻译等。&lt;br&gt;&lt;img src=&quot;images/jufafenxi.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;依存文法最早L.Tesniere在其著作《结构句法基础》（1959年）中提出，通过分析语言单位内成分之间的依存关系揭示其句法结构，主张句子中核心动词是支配其它成分的中心成分，而它本身却不受其它任何成分的支配，所有受支配成分都以某种依存关系从属于支配者。依存语法中关于依存关系有四条公理，在处理中文信息的研究中，中国学者提出了依存关系的第五条公理，如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个句子中只有一个成分是独立的；&lt;/li&gt;
+&lt;li&gt;其它成分直接依存于某一成分；&lt;/li&gt;
+&lt;li&gt;任何一个成分都不能依存与两个或两个以上的成分；&lt;/li&gt;
+&lt;li&gt;如果A成分直接依存于B成分，而C成分在句中位于A和B之间，那么C或者直接依存于B，或者直接依存于A和B之间的某一成分；&lt;/li&gt;
+&lt;li&gt;中心成分左右两面的其它成分相互不发生关系。&lt;br&gt;句子成分间相互支配与被支配、依存与被依存的现象普遍存在于汉语的词汇（合成语）、短语、单句、复合直到句群的各级能够独立运用的语言单位之中，这一特点为依存关系的普遍性，依存句法分析可以反映出句子各成分之间的语义修饰关系，它可以获得长距离的搭配信息，并与句子成分的物理位置无关。&lt;h1 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h1&gt;当前一种主流的思路是Transition-based的依存分析，定义一个栈结构，以及一些动作，这些动作分别是句子中元素的入栈和出栈（出栈动作包括出栈元素与栈顶元素的依存边），然后训练一个分类器，对于特定状态，预测合适动作。&lt;br&gt;动作包括：&lt;/li&gt;
+&lt;li&gt;SHIFT，从原句子中取一个词入栈&lt;/li&gt;
+&lt;li&gt;LEFT-ARC(R)，栈顶第二个元素出栈，出站后，出栈元素为子节点，栈顶元素为父节点，边类型为R&lt;/li&gt;
+&lt;li&gt;RIGHT-ARC(R)，栈顶第一个元素出栈，出站后，出栈元素为子节点，栈顶元素为父节点，边类型为R&lt;br&gt;&lt;img src=&quot;images/image2.png&quot; alt=&quot;ima&quot;&gt;&lt;br&gt;&lt;a href=&quot;1.pdf&quot;&gt;论文&lt;/a&gt;&lt;br&gt;当前大部分研究集中在动作选择时候的分类器设计和特征选择上。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要进行句子的依存分析，标注出句子中各词语之间的语法关系，如下图，如SBV主谓关系，VOB动宾关系，COO并列关系等，得到的依存关系可以用于其他多项NLP任务，如信息抽取、情感分析、自动问答、机器翻译等。&lt;br&gt;&lt;img src=&quot;images/jufafenxi.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="句法分析" scheme="http://yoursite.com/categories/%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="句法树" scheme="http://yoursite.com/tags/%E5%8F%A5%E6%B3%95%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>使用CRF++用于中文命名实体识别</title>
