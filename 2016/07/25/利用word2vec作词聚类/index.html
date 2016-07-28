@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="word2vec," />
 
 
 
@@ -104,15 +104,16 @@
 
 
 
-<meta name="description" content="心之所向,四海归一">
-<meta property="og:type" content="website">
-<meta property="og:title" content=" John's Blog">
-<meta property="og:url" content="http://yoursite.com/tags/C-C-运行时间/index.html">
+<meta name="description" content="前段时间做句子主干词识别，其中有一个特征是聚类编号，即对表达意向相近的词归为一个编号，这样对于一些未登录词来说该特征显得十分重要。这就用到了word2vec工具，也就是将词语向量化，然后根据欧几里得距离或者余弦距离并使用k-means聚类算法对词语聚类。下面介绍word2vec的使用方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用word2vec作词聚类">
+<meta property="og:url" content="http://yoursite.com/2016/07/25/利用word2vec作词聚类/index.html">
 <meta property="og:site_name" content=" John's Blog">
-<meta property="og:description" content="心之所向,四海归一">
+<meta property="og:description" content="前段时间做句子主干词识别，其中有一个特征是聚类编号，即对表达意向相近的词归为一个编号，这样对于一些未登录词来说该特征显得十分重要。这就用到了word2vec工具，也就是将词语向量化，然后根据欧几里得距离或者余弦距离并使用k-means聚类算法对词语聚类。下面介绍word2vec的使用方法。">
+<meta property="og:updated_time" content="2016-07-28T09:40:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" John's Blog">
-<meta name="twitter:description" content="心之所向,四海归一">
+<meta name="twitter:title" content="利用word2vec作词聚类">
+<meta name="twitter:description" content="前段时间做句子主干词识别，其中有一个特征是聚类编号，即对表达意向相近的词归为一个编号，这样对于一些未登录词来说该特征显得十分重要。这就用到了word2vec工具，也就是将词语向量化，然后根据欧几里得距离或者余弦距离并使用k-means聚类算法对词语聚类。下面介绍word2vec的使用方法。">
 
 
 
@@ -133,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/C-C-运行时间/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/25/利用word2vec作词聚类/"/>
 
-  <title> 标签: -C/C++ -运行时间 |  John's Blog </title>
+  <title> 利用word2vec作词聚类 |  John's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +157,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,46 +255,161 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        -C/C++ -运行时间
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用word2vec作词聚类
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-25T00:00:00+08:00" content="2016-07-25">
+              2016-07-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/深度学习/聚类/" itemprop="url" rel="index">
+                    <span itemprop="name">聚类</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/25/利用word2vec作词聚类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/利用word2vec作词聚类/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>前段时间做句子主干词识别，其中有一个特征是聚类编号，即对表达意向相近的词归为一个编号，这样对于一些未登录词来说该特征显得十分重要。这就用到了word2vec工具，也就是将词语向量化，然后根据欧几里得距离或者余弦距离并使用k-means聚类算法对词语聚类。下面介绍word2vec的使用方法。<br><a id="more"></a></p>
+<h1 id="运行过程"><a href="#运行过程" class="headerlink" title="运行过程"></a>运行过程</h1><p>首先我们将google word2vec项目源码checkout 到本机，具体地址是<a href="http://word2vec.googlecode.com/svn/trunk/" target="_blank" rel="external">http://word2vec.googlecode.com/svn/trunk/</a><br>进入目录，命令行输入make指令，进行编译。<br>这样我们就可以开始使用，word2vec工具了。<br>假定我语料名称为test.txt且在word2vec目录中。输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./word2vec -train test.txt -output vectors.bin -cbow 0 -size 200 \</div><div class="line">-window 5 -negative 0 -hs 1 -sample 1e-3 -threads 12 -binary 1</div></pre></td></tr></table></figure></p>
+<p>以上命令表示的是输入文件是test.txt，输出文件是vectors.bin，不使用cbow模型，默认为Skip-Gram模型。 每个单词的向量维度是200，训练的窗口大小为5就是考虑一个词前五个和后五个词语（实际代码中还有一个随机选窗口的过程，窗口大小&lt;=5）。不使用NEG方法，使用HS方法。-sampe指的是采样的阈值，如果一个词语在训练样本中出现的频率越大，那么就越会被采样。-binary为1指的是结果二进制存储，为0是普通存储（普通存储的时候是可以打开看到词语和对应的向量的）除了以上命令中的参数，word2vec还有几个参数对我们比较有用比如-alpha设置学习速率，默认的为0.025. –min-count设置最低频率，默认是5，如果一个词语在文档中出现的次数小于5，那么就会丢弃。-classes设置聚类个数，看了一下源码用的是k-means聚类的方法。</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/07/09/C:C++中计算程序运行时间的方法/" itemprop="url">
-              
-                <span itemprop="name">C/C++中计算程序运行时间的方法</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-09T00:00:00+08:00"
-              content="2016-07-09" >
-          07-09
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/word2vec/" rel="tag">#word2vec</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/24/依存句法分析/" rel="next" title="依存句法分析">
+                <i class="fa fa-chevron-left"></i> 依存句法分析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -301,6 +417,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/25/利用word2vec作词聚类/"
+           data-title="利用word2vec作词聚类" data-url="http://yoursite.com/2016/07/25/利用word2vec作词聚类/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -320,8 +444,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/timg.png"
@@ -417,6 +550,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#运行过程"><span class="nav-number">1.</span> <span class="nav-text">运行过程</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -511,6 +655,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

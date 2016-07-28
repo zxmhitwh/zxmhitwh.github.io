@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-26T05:48:30.000Z</updated>
+  <updated>2016-07-28T09:40:54.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用word2vec作词聚类</title>
+    <link href="http://yoursite.com/2016/07/25/%E5%88%A9%E7%94%A8word2vec%E4%BD%9C%E8%AF%8D%E8%81%9A%E7%B1%BB/"/>
+    <id>http://yoursite.com/2016/07/25/利用word2vec作词聚类/</id>
+    <published>2016-07-24T16:00:00.000Z</published>
+    <updated>2016-07-28T09:40:54.000Z</updated>
+    
+    <content type="html">&lt;p&gt;前段时间做句子主干词识别，其中有一个特征是聚类编号，即对表达意向相近的词归为一个编号，这样对于一些未登录词来说该特征显得十分重要。这就用到了word2vec工具，也就是将词语向量化，然后根据欧几里得距离或者余弦距离并使用k-means聚类算法对词语聚类。下面介绍word2vec的使用方法。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;运行过程&quot;&gt;&lt;a href=&quot;#运行过程&quot; class=&quot;headerlink&quot; title=&quot;运行过程&quot;&gt;&lt;/a&gt;运行过程&lt;/h1&gt;&lt;p&gt;首先我们将google word2vec项目源码checkout 到本机，具体地址是&lt;a href=&quot;http://word2vec.googlecode.com/svn/trunk/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://word2vec.googlecode.com/svn/trunk/&lt;/a&gt;&lt;br&gt;进入目录，命令行输入make指令，进行编译。&lt;br&gt;这样我们就可以开始使用，word2vec工具了。&lt;br&gt;假定我语料名称为test.txt且在word2vec目录中。输入命令：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;./word2vec -train test.txt -output vectors.bin -cbow 0 -size 200 \&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;-window 5 -negative 0 -hs 1 -sample 1e-3 -threads 12 -binary 1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;以上命令表示的是输入文件是test.txt，输出文件是vectors.bin，不使用cbow模型，默认为Skip-Gram模型。 每个单词的向量维度是200，训练的窗口大小为5就是考虑一个词前五个和后五个词语（实际代码中还有一个随机选窗口的过程，窗口大小&amp;lt;=5）。不使用NEG方法，使用HS方法。-sampe指的是采样的阈值，如果一个词语在训练样本中出现的频率越大，那么就越会被采样。-binary为1指的是结果二进制存储，为0是普通存储（普通存储的时候是可以打开看到词语和对应的向量的）除了以上命令中的参数，word2vec还有几个参数对我们比较有用比如-alpha设置学习速率，默认的为0.025. –min-count设置最低频率，默认是5，如果一个词语在文档中出现的次数小于5，那么就会丢弃。-classes设置聚类个数，看了一下源码用的是k-means聚类的方法。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前段时间做句子主干词识别，其中有一个特征是聚类编号，即对表达意向相近的词归为一个编号，这样对于一些未登录词来说该特征显得十分重要。这就用到了word2vec工具，也就是将词语向量化，然后根据欧几里得距离或者余弦距离并使用k-means聚类算法对词语聚类。下面介绍word2vec的使用方法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="聚类" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%81%9A%E7%B1%BB/"/>
+    
+    
+      <category term="word2vec" scheme="http://yoursite.com/tags/word2vec/"/>
+    
+  </entry>
   
   <entry>
     <title>依存句法分析</title>
