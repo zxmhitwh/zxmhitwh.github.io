@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="逻辑回归,主动学习," />
+  <meta name="keywords" content="蓄水池问题," />
 
 
 
@@ -104,16 +104,16 @@
 
 
 
-<meta name="description" content="1、之前两周利用主动学习的方式训练集2、标注数据分离一小部分作为测试集利用LR分类器调参。3、利用最有参数训练标注语料生成特征权重weights。3、使用weights获得主干提取demo。周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想分析原因：训练集过少、覆盖面过窄、稳定性不高这周的主要工作：1、提取多种语料库中的资源做人工语料标注2、增加部分特征，扩大特征维度3、特征结构统一">
+<meta name="description" content="海量数据中随机抽取一行题目：如何从n个对象（可以依次看到这n个对象，但事先不知道n的值）中随机选择一个？具体来说，如何在事先不知道文本行数的情况下读取该文件，从中随机抽取一行？解析：该抽样叫蓄水池抽样。因为不可以事先知道n的大小，所以不能直接使用随机数。因为是随机抽样，所以每行被抽取的概率为1/n。我们以1的概率抽取第一行存储为s，以1/2的概率抽取第二行并替换s…以1/n的概率抽取第n行，并替换">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用标注语料生成决策weights">
-<meta property="og:url" content="http://yoursite.com/2016/07/05/利用标注语料生成决策weights/index.html">
+<meta property="og:title" content="数据抽样问题(蓄水池抽样)">
+<meta property="og:url" content="http://yoursite.com/2016/07/29/数据抽样问题(蓄水池抽样)/index.html">
 <meta property="og:site_name" content=" John's Blog">
-<meta property="og:description" content="1、之前两周利用主动学习的方式训练集2、标注数据分离一小部分作为测试集利用LR分类器调参。3、利用最有参数训练标注语料生成特征权重weights。3、使用weights获得主干提取demo。周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想分析原因：训练集过少、覆盖面过窄、稳定性不高这周的主要工作：1、提取多种语料库中的资源做人工语料标注2、增加部分特征，扩大特征维度3、特征结构统一">
-<meta property="og:updated_time" content="2016-07-08T09:18:09.000Z">
+<meta property="og:description" content="海量数据中随机抽取一行题目：如何从n个对象（可以依次看到这n个对象，但事先不知道n的值）中随机选择一个？具体来说，如何在事先不知道文本行数的情况下读取该文件，从中随机抽取一行？解析：该抽样叫蓄水池抽样。因为不可以事先知道n的大小，所以不能直接使用随机数。因为是随机抽样，所以每行被抽取的概率为1/n。我们以1的概率抽取第一行存储为s，以1/2的概率抽取第二行并替换s…以1/n的概率抽取第n行，并替换">
+<meta property="og:updated_time" content="2016-08-02T07:05:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用标注语料生成决策weights">
-<meta name="twitter:description" content="1、之前两周利用主动学习的方式训练集2、标注数据分离一小部分作为测试集利用LR分类器调参。3、利用最有参数训练标注语料生成特征权重weights。3、使用weights获得主干提取demo。周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想分析原因：训练集过少、覆盖面过窄、稳定性不高这周的主要工作：1、提取多种语料库中的资源做人工语料标注2、增加部分特征，扩大特征维度3、特征结构统一">
+<meta name="twitter:title" content="数据抽样问题(蓄水池抽样)">
+<meta name="twitter:description" content="海量数据中随机抽取一行题目：如何从n个对象（可以依次看到这n个对象，但事先不知道n的值）中随机选择一个？具体来说，如何在事先不知道文本行数的情况下读取该文件，从中随机抽取一行？解析：该抽样叫蓄水池抽样。因为不可以事先知道n的大小，所以不能直接使用随机数。因为是随机抽样，所以每行被抽取的概率为1/n。我们以1的概率抽取第一行存储为s，以1/2的概率抽取第二行并替换s…以1/n的概率抽取第n行，并替换">
 
 
 
@@ -134,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/05/利用标注语料生成决策weights/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/29/数据抽样问题(蓄水池抽样)/"/>
 
-  <title> 利用标注语料生成决策weights |  John's Blog </title>
+  <title> 数据抽样问题(蓄水池抽样) |  John's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +276,7 @@
             
             
               
-                利用标注语料生成决策weights
+                数据抽样问题(蓄水池抽样)
               
             
           </h1>
@@ -288,38 +288,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-05T00:00:00+08:00" content="2016-07-05">
-              2016-07-05
+            <time itemprop="dateCreated" datetime="2016-07-29T00:00:00+08:00" content="2016-07-29">
+              2016-07-29
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/句子主干提取/" itemprop="url" rel="index">
-                    <span itemprop="name">句子主干提取</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/05/利用标注语料生成决策weights/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/利用标注语料生成决策weights/" itemprop="commentsCount"></span>
+                <a href="/2016/07/29/数据抽样问题(蓄水池抽样)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/29/数据抽样问题(蓄水池抽样)/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -342,32 +323,8 @@
       
 
       
-        <p>1、之前两周利用主动学习的方式训练集<br>2、标注数据分离一小部分作为测试集利用LR分类器调参。<br>3、利用最有参数训练标注语料生成特征权重weights。<br>3、使用weights获得主干提取demo。<br>周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想<br>分析原因：训练集过少、覆盖面过窄、稳定性不高<br>这周的主要工作：<br>1、提取多种语料库中的资源做人工语料标注<br>2、增加部分特征，扩大特征维度<br>3、特征结构统一化，例如某个词的特征用词典表示，预定义好所有的key。暂时定义如下：</p>
-<a id="more"></a>
-<ul>
-<li>列表内容</li>
-<li>word_0  当前词本身</li>
-<li>pos_0  当前词本身词性</li>
-<li>cluster_0 当前词本身聚类编号</li>
-<li>word_-1  当前词的前一个词本身</li>
-<li>pos_-1   当前词的前一个词词性</li>
-<li>cluster_-1   当前词的前一个词聚类编号</li>
-<li>word_1   当前词的后一个词本身</li>
-<li>pos_1    当前词的后一个词词性</li>
-<li>cluster_1   当前词的后一个词聚类编号</li>
-<li>parent_edge_0   当前词的父边关系类型</li>
-<li>child_edge_0   当前词的子边关系类型</li>
-<li>word_parent_node_0   当前词的父节点词本身</li>
-<li>pos_parent_node_0  当前词的父节点词性</li>
-<li>cluster_parent_node_0 当前词的父节点词聚类编号</li>
-<li>word_parent<em>node</em>-1   当前词的前一个词的父节点词本身</li>
-<li>pos_parent<em>node</em>-1  当前词的前一个词的父节点词性</li>
-<li>cluster_parent<em>node</em>-1 当前词的前一个词的父节点词聚类编号</li>
-<li>word_parent_node_1   当前词的后一个词的父节点词本身</li>
-<li>pos_parent_node_1  当前词的后一个词的父节点词性</li>
-<li>cluster_parent_node_1 当前词的后一个词的父节点词聚类编号</li>
-</ul>
-<p>计划下周：<br>把句子主干提取完善版本完成。</p>
+        <h1 id="海量数据中随机抽取一行"><a href="#海量数据中随机抽取一行" class="headerlink" title="海量数据中随机抽取一行"></a>海量数据中随机抽取一行</h1><p>题目：如何从n个对象（可以依次看到这n个对象，但事先不知道n的值）中随机选择一个？具体来说，如何在事先不知道文本行数的情况下读取该文件，从中随机抽取一行？<br>解析：该抽样叫蓄水池抽样。因为不可以事先知道n的大小，所以不能直接使用随机数。因为是随机抽样，所以每行被抽取的概率为1/n。我们以1的概率抽取第一行存储为s，以1/2的概率抽取第二行并替换s…以1/n的概率抽取第n行，并替换s。代码如下:<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">import sys</div><div class="line">import random</div><div class="line">def randomSampling():</div><div class="line">    s = &apos;&apos;</div><div class="line">    i = 1</div><div class="line">    for line in sys.stdin:</div><div class="line">        if i == 1:</div><div class="line">            s = line.strip()</div><div class="line">        else:</div><div class="line">            if (random.randint(1, i) == 1): # 以1/k的概率被抽取到</div><div class="line">                s = line.strip()</div><div class="line">        i = i + 1</div><div class="line">    return s</div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    print randomSampling()</div></pre></td></tr></table></figure></p>
+<h1 id="题目：从海量文本中抽取k行，使得每行被抽取的概率相等。"><a href="#题目：从海量文本中抽取k行，使得每行被抽取的概率相等。" class="headerlink" title="题目：从海量文本中抽取k行，使得每行被抽取的概率相等。"></a>题目：从海量文本中抽取k行，使得每行被抽取的概率相等。</h1><p>分析：使用蓄水池抽样，先抽取k行并保存到集合set中。以k/k＋1的概率抽取第k＋1行并替换掉set[0]，以k/k+2的概率抽取第k＋2行并替换掉第set[1]行。以k/k+m对概率抽取第k+m行，并替换掉set[(k+m)%k]行。每行依然是等概率选取.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import sys</div><div class="line">import random</div><div class="line">def randomSampling(k):</div><div class="line">    myset = []</div><div class="line">    i = 1</div><div class="line">    for line in sys.stdin:</div><div class="line">        if i &lt;= k:</div><div class="line">            myset.append(line.strip())</div><div class="line">        else:</div><div class="line">            if (random.randint(1, i) &lt;= k):</div><div class="line">                myset[i % k] = line.strip()</div><div class="line">        i += 1</div><div class="line">    return myset</div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    for line in randomSampling(3):</div><div class="line">        print line.strip()</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -389,9 +346,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/逻辑回归/" rel="tag">#逻辑回归</a>
-          
-            <a href="/tags/主动学习/" rel="tag">#主动学习</a>
+            <a href="/tags/蓄水池问题/" rel="tag">#蓄水池问题</a>
           
         </div>
       
@@ -400,17 +355,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/24/通过主动学习的方法进行自动语料标注/" rel="next" title="通过主动学习的方法进行自动语料标注">
-                <i class="fa fa-chevron-left"></i> 通过主动学习的方法进行自动语料标注
+              <a href="/2016/07/25/利用word2vec作词聚类/" rel="next" title="利用word2vec作词聚类">
+                <i class="fa fa-chevron-left"></i> 利用word2vec作词聚类
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/09/C:C++中计算程序运行时间的方法/" rel="prev" title="C/C++中计算程序运行时间的方法">
-                C/C++中计算程序运行时间的方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -436,8 +387,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/05/利用标注语料生成决策weights/"
-           data-title="利用标注语料生成决策weights" data-url="http://yoursite.com/2016/07/05/利用标注语料生成决策weights/">
+      <div class="ds-thread" data-thread-key="2016/07/29/数据抽样问题(蓄水池抽样)/"
+           data-title="数据抽样问题(蓄水池抽样)" data-url="http://yoursite.com/2016/07/29/数据抽样问题(蓄水池抽样)/">
       </div>
     
   </div>
@@ -573,7 +524,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#海量数据中随机抽取一行"><span class="nav-number">1.</span> <span class="nav-text">海量数据中随机抽取一行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目：从海量文本中抽取k行，使得每行被抽取的概率相等。"><span class="nav-number">2.</span> <span class="nav-text">题目：从海量文本中抽取k行，使得每行被抽取的概率相等。</span></a></li></ol></div>
             
           </div>
         </section>

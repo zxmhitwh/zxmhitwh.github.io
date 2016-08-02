@@ -107,7 +107,7 @@
 <meta name="description" content="心之所向,四海归一">
 <meta property="og:type" content="website">
 <meta property="og:title" content=" John's Blog">
-<meta property="og:url" content="http://yoursite.com/categories/C-C/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content=" John's Blog">
 <meta property="og:description" content="心之所向,四海归一">
 <meta name="twitter:card" content="summary">
@@ -133,9 +133,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/C-C/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
-  <title> 分类: C/C++ |  John's Blog </title>
+  <title>  John's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +156,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -253,40 +255,127 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        C/C++
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <section id="posts" class="posts-expand">
     
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
 
-      <h1 class="post-title">
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/07/09/C:C++中计算程序运行时间的方法/" itemprop="url">
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
               
-                <span itemprop="name">C/C++中计算程序运行时间的方法</span>
+                
+                <a class="post-title-link" href="/2016/06/15/单链表反转问题/" itemprop="url">
+                  单链表反转问题
+                </a>
               
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T00:00:00+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/单链表反转问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/单链表反转问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>题目：定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。</p>
+<h3 id="1、非递归方式实现"><a href="#1、非递归方式实现" class="headerlink" title="1、非递归方式实现"></a>1、非递归方式实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//思路为将节点从前到后依次放到表头，最后最后的节点到了最前面,最前面的节点到了最后面  </div><div class="line">ListNode * ReverseList(ListNode *  head)  </div><div class="line">&#123;  </div><div class="line">   //如果链表为空或者链表中只有一个元素  </div><div class="line">   if(head==NULL || head-&gt;m_pNext==NULL)  </div><div class="line">       return head;  </div><div class="line">   ListNode * p=head-&gt;m_pNext;  </div><div class="line">   ListNode * q=head;  </div><div class="line">   while(p!=NULL)  </div><div class="line">   &#123;  </div><div class="line">     q-&gt;m_pNext=p-&gt;m_pNext;//记录下p的下一个节点  </div><div class="line">     p-&gt;m_pNext=head;  </div><div class="line">     head=p;  </div><div class="line">     p=q-&gt;m_pNext;//准备将p的下一个节点放到表头  </div><div class="line">   &#125;  </div><div class="line">   return head;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/15/单链表反转问题/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
+          </div>
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-09T00:00:00+08:00"
-              content="2016-07-09" >
-          07-09
-        </time>
-      </div>
+    <div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
@@ -294,6 +383,9 @@
   </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 

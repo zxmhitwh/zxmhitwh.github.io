@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-28T09:40:54.000Z</updated>
+  <updated>2016-08-02T07:05:16.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据抽样问题(蓄水池抽样)</title>
+    <link href="http://yoursite.com/2016/07/29/%E6%95%B0%E6%8D%AE%E6%8A%BD%E6%A0%B7%E9%97%AE%E9%A2%98(%E8%93%84%E6%B0%B4%E6%B1%A0%E6%8A%BD%E6%A0%B7)/"/>
+    <id>http://yoursite.com/2016/07/29/数据抽样问题(蓄水池抽样)/</id>
+    <published>2016-07-28T16:00:00.000Z</published>
+    <updated>2016-08-02T07:05:16.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;海量数据中随机抽取一行&quot;&gt;&lt;a href=&quot;#海量数据中随机抽取一行&quot; class=&quot;headerlink&quot; title=&quot;海量数据中随机抽取一行&quot;&gt;&lt;/a&gt;海量数据中随机抽取一行&lt;/h1&gt;&lt;p&gt;题目：如何从n个对象（可以依次看到这n个对象，但事先不知道n的值）中随机选择一个？具体来说，如何在事先不知道文本行数的情况下读取该文件，从中随机抽取一行？&lt;br&gt;解析：该抽样叫蓄水池抽样。因为不可以事先知道n的大小，所以不能直接使用随机数。因为是随机抽样，所以每行被抽取的概率为1/n。我们以1的概率抽取第一行存储为s，以1/2的概率抽取第二行并替换s…以1/n的概率抽取第n行，并替换s。代码如下:&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;import sys&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;import random&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;def randomSampling():&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    s = &amp;apos;&amp;apos;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    i = 1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    for line in sys.stdin:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        if i == 1:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            s = line.strip()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        else:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            if (random.randint(1, i) == 1): # 以1/k的概率被抽取到&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                s = line.strip()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        i = i + 1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    return s&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;if __name__ == &amp;apos;__main__&amp;apos;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    print randomSampling()&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&quot;题目：从海量文本中抽取k行，使得每行被抽取的概率相等。&quot;&gt;&lt;a href=&quot;#题目：从海量文本中抽取k行，使得每行被抽取的概率相等。&quot; class=&quot;headerlink&quot; title=&quot;题目：从海量文本中抽取k行，使得每行被抽取的概率相等。&quot;&gt;&lt;/a&gt;题目：从海量文本中抽取k行，使得每行被抽取的概率相等。&lt;/h1&gt;&lt;p&gt;分析：使用蓄水池抽样，先抽取k行并保存到集合set中。以k/k＋1的概率抽取第k＋1行并替换掉set[0]，以k/k+2的概率抽取第k＋2行并替换掉第set[1]行。以k/k+m对概率抽取第k+m行，并替换掉set[(k+m)%k]行。每行依然是等概率选取.&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;import sys&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;import random&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;def randomSampling(k):&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    myset = []&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    i = 1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    for line in sys.stdin:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        if i &amp;lt;= k:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            myset.append(line.strip())&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        else:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            if (random.randint(1, i) &amp;lt;= k):&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                myset[i % k] = line.strip()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        i += 1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    return myset&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;if __name__ == &amp;apos;__main__&amp;apos;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    for line in randomSampling(3):&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        print line.strip()&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;海量数据中随机抽取一行&quot;&gt;&lt;a href=&quot;#海量数据中随机抽取一行&quot; class=&quot;headerlink&quot; title=&quot;海量数据中随机抽取一行&quot;&gt;&lt;/a&gt;海量数据中随机抽取一行&lt;/h1&gt;&lt;p&gt;题目：如何从n个对象（可以依次看到这n个对象，但事先不知道n的值）中随机选择一个？具体来说，如何在事先不知道文本行数的情况下读取该文件，从中随机抽取一行？&lt;br&gt;解析：该抽样叫蓄水池抽样。因为不可以事先知道n的大小，所以不能直接使用随机数。因为是随机抽样，所以每行被抽取的概率为1/n。我们以1的概率抽取第一行存储为s，以1/2的概率抽取第二行并替换s…以1/n的概率抽取第n行，并替换s。代码如下:&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="蓄水池问题" scheme="http://yoursite.com/tags/%E8%93%84%E6%B0%B4%E6%B1%A0%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>利用word2vec作词聚类</title>
