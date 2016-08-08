@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-02T07:07:28.000Z</updated>
+  <updated>2016-08-08T03:39:43.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,110 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用linux命令sort和uniq求两个文件的交集并集和补集</title>
+    <link href="http://yoursite.com/2016/08/05/%E5%88%A9%E7%94%A8linux%E5%91%BD%E4%BB%A4sort%E5%92%8Cuniq%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E4%BA%A4%E9%9B%86%E5%B9%B6%E9%9B%86%E5%92%8C%E8%A1%A5%E9%9B%86/"/>
+    <id>http://yoursite.com/2016/08/05/利用linux命令sort和uniq求两个文件的交集并集和补集/</id>
+    <published>2016-08-04T16:00:00.000Z</published>
+    <updated>2016-08-08T03:39:43.000Z</updated>
+    
+    <content type="html">&lt;p&gt;给定两个文件 a.txt 和 b.txt ，每行是一个记录（假设没有重复），要求输出两集合的交集、并集、差集，输出的结果只包括唯一项。交集定义为同时出现在两个文件中的记录项，并集定义为出现在任何一个文件中的记录项，差集(A-B)定义为出现在A中而且不出现在B中的记录，对称差集定义为只出现在一个文件中的记录。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;S&lt;br&gt;假设 a.txt 包括 a, c, b 三行。假设 b.txt 包括 d, e, c, b 四行。&lt;/p&gt;
+&lt;p&gt;交集，把两个文件放到一起排序，只输出次数多于一次的项：&lt;br&gt;$ sort a.txt b.txt | uniq -d&lt;br&gt;b&lt;br&gt;c&lt;/p&gt;
+&lt;p&gt;并集，把两个文件放到一起排序，重复的项只算一次：&lt;br&gt;$ sort a.txt b.txt | uniq&lt;br&gt;a&lt;br&gt;b&lt;br&gt;c&lt;br&gt;d&lt;br&gt;e&lt;/p&gt;
+&lt;p&gt;差集(A-B)，把B的元素重复2份和A的元素放到一起排序，只输出出现一次的项：&lt;br&gt;$ sort a.txt b.txt b.txt | uniq -u&lt;br&gt;a&lt;/p&gt;
+&lt;p&gt;对称差，把两个文件放到一起排序，只输出出现一次的项：&lt;br&gt;$ sort a.txt b.txt | uniq -u&lt;br&gt;a&lt;br&gt;d&lt;br&gt;e&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给定两个文件 a.txt 和 b.txt ，每行是一个记录（假设没有重复），要求输出两集合的交集、并集、差集，输出的结果只包括唯一项。交集定义为同时出现在两个文件中的记录项，并集定义为出现在任何一个文件中的记录项，差集(A-B)定义为出现在A中而且不出现在B中的记录，对称差集定义为只出现在一个文件中的记录。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux命令" scheme="http://yoursite.com/categories/Linux%E5%91%BD%E4%BB%A4/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux screen命令详解</title>
+    <link href="http://yoursite.com/2016/08/04/linux%20screen%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://yoursite.com/2016/08/04/linux screen命令详解/</id>
+    <published>2016-08-03T16:00:00.000Z</published>
+    <updated>2016-08-08T03:30:34.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;一、背景&quot;&gt;&lt;a href=&quot;#一、背景&quot; class=&quot;headerlink&quot; title=&quot;一、背景&quot;&gt;&lt;/a&gt;一、背景&lt;/h1&gt;&lt;p&gt;系统管理员经常需要SSH 或者telent 远程登录到Linux 服务器，经常运行一些需要很长时间才能完成的任务，比如系统备份、ftp 传输等等。通常情况下我们都是为每一个这样的任务开一个远程终端窗口，因为它们执行的时间太长了。必须等待它们执行完毕，在此期间不能关掉窗口或者断开连接，否则这个任务就会被杀掉，一切半途而废了。&lt;/p&gt;
+&lt;h1 id=&quot;二、简介&quot;&gt;&lt;a href=&quot;#二、简介&quot; class=&quot;headerlink&quot; title=&quot;二、简介&quot;&gt;&lt;/a&gt;二、简介&lt;/h1&gt;&lt;p&gt;GNU Screen是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。&lt;/p&gt;
+&lt;p&gt;GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;会话恢复&lt;br&gt;只要Screen本身没有终止，在其内部运行的会话都可以恢复。这一点对于远程登录的用户特别有用——即使网络连接中断，用户也不会失去对已经打开的命令行会话的控制。只要再次登录到主机上执行screen -r就可以恢复会话的运行。同样在暂时离开的时候，也可以执行分离命令detach，在保证里面的程序正常运行的情况下让Screen挂起（切换到后台）。这一点和图形界面下的VNC很相似。&lt;br&gt;多窗口&lt;br&gt;在Screen环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。Screen实现了基本的文本操作，如复制粘贴等；还提供了类似滚动条的功能，可以查看窗口状况的历史记录。窗口还可以被分区和命名，还可以监视后台窗口的活动。&lt;br&gt;会话共享&lt;br&gt;Screen可以让一个或多个用户从不同终端多次登录一个会话，并共享会话的所有特性（比如可以看到完全相同的输出）。它同时提供了窗口访问权限的机制，可以对窗口进行密码保护。&lt;br&gt;GNU’s Screen 官方站点：&lt;a href=&quot;http://www.gnu.org/software/screen/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.gnu.org/software/screen/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;三、语法&quot;&gt;&lt;a href=&quot;#三、语法&quot; class=&quot;headerlink&quot; title=&quot;三、语法&quot;&gt;&lt;/a&gt;三、语法&lt;/h1&gt;&lt;h1 id=&quot;screen-AmRvx-ls-wipe-d-lt-作业名称-gt-h-lt-行数-gt-r-lt-作业名称-gt-s-S-lt-作业名称-gt&quot;&gt;&lt;a href=&quot;#screen-AmRvx-ls-wipe-d-lt-作业名称-gt-h-lt-行数-gt-r-lt-作业名称-gt-s-S-lt-作业名称-gt&quot; class=&quot;headerlink&quot; title=&quot;screen [-AmRvx -ls -wipe][-d &amp;lt;作业名称&amp;gt;][-h &amp;lt;行数&amp;gt;][-r &amp;lt;作业名称&amp;gt;][-s ][-S &amp;lt;作业名称&amp;gt;]&quot;&gt;&lt;/a&gt;screen [-AmRvx -ls -wipe][-d &amp;lt;作业名称&amp;gt;][-h &amp;lt;行数&amp;gt;][-r &amp;lt;作业名称&amp;gt;][-s ][-S &amp;lt;作业名称&amp;gt;]&lt;/h1&gt;&lt;p&gt;参数说明&lt;/p&gt;
+&lt;p&gt;-A 　将所有的视窗都调整为目前终端机的大小。&lt;br&gt;-d &amp;lt;作业名称&amp;gt; 　将指定的screen作业离线。&lt;br&gt;-h &amp;lt;行数&amp;gt; 　指定视窗的缓冲区行数。&lt;br&gt;-m 　即使目前已在作业中的screen作业，仍强制建立新的screen作业。&lt;br&gt;-r &amp;lt;作业名称&amp;gt; 　恢复离线的screen作业。&lt;br&gt;-R 　先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。&lt;br&gt;-s 　指定建立新视窗时，所要执行的shell。&lt;br&gt;-S &amp;lt;作业名称&amp;gt; 　指定screen作业的名称。&lt;br&gt;-v 　显示版本信息。&lt;br&gt;-x 　恢复之前离线的screen作业。&lt;br&gt;-ls或–list 　显示目前所有的screen作业。&lt;br&gt;-wipe 　检查目前所有的screen作业，并删除已经无法使用的screen作业。&lt;/p&gt;
+&lt;h1 id=&quot;四、常用screen参数&quot;&gt;&lt;a href=&quot;#四、常用screen参数&quot; class=&quot;headerlink&quot; title=&quot;四、常用screen参数&quot;&gt;&lt;/a&gt;四、常用screen参数&lt;/h1&gt;&lt;p&gt;screen -S yourname -&amp;gt; 新建一个叫yourname的session&lt;br&gt;screen -ls -&amp;gt; 列出当前所有的session&lt;br&gt;screen -r yourname -&amp;gt; 回到yourname这个session&lt;br&gt;screen -d yourname -&amp;gt; 远程detach某个session&lt;br&gt;screen -d -r yourname -&amp;gt; 结束当前session并回到yourname这个session&lt;/p&gt;
+&lt;p&gt;在每个screen session 下，所有命令都以 ctrl+a(C-a) 开始。&lt;br&gt;C-a ? -&amp;gt; 显示所有键绑定信息&lt;br&gt;C-a c -&amp;gt; 创建一个新的运行shell的窗口并切换到该窗口&lt;br&gt;C-a n -&amp;gt; Next，切换到下一个 window&lt;br&gt;C-a p -&amp;gt; Previous，切换到前一个 window&lt;br&gt;C-a 0..9 -&amp;gt; 切换到第 0..9 个 window&lt;br&gt;Ctrl+a [Space] -&amp;gt; 由视窗0循序切换到视窗9&lt;br&gt;C-a C-a -&amp;gt; 在两个最近使用的 window 间切换&lt;br&gt;C-a x -&amp;gt; 锁住当前的 window，需用用户密码解锁&lt;br&gt;C-a d -&amp;gt; detach，暂时离开当前session，将目前的 screen session (可能含有多个 windows) 丢到后台执行，并会回到还没进 screen 时的状态，此时在 screen session 里，每个 window 内运行的 process (无论是前台/后台)都在继续执行，即使 logout 也不影响。&lt;br&gt;C-a z -&amp;gt; 把当前session放到后台执行，用 shell 的 fg 命令则可回去。&lt;br&gt;C-a w -&amp;gt; 显示所有窗口列表&lt;br&gt;C-a t -&amp;gt; Time，显示当前时间，和系统的 load&lt;br&gt;C-a k -&amp;gt; kill window，强行关闭当前的 window&lt;br&gt;C-a [ -&amp;gt; 进入 copy mode，在 copy mode 下可以回滚、搜索、复制就像用使用 vi 一样&lt;br&gt;    C-b Backward，PageUp&lt;br&gt;    C-f Forward，PageDown&lt;br&gt;    H(大写) High，将光标移至左上角&lt;br&gt;    L Low，将光标移至左下角&lt;br&gt;    0 移到行首&lt;br&gt;    $ 行末&lt;br&gt;    w forward one word，以字为单位往前移&lt;br&gt;    b backward one word，以字为单位往后移&lt;br&gt;    Space 第一次按为标记区起点，第二次按为终点&lt;br&gt;    Esc 结束 copy mode&lt;br&gt;C-a ] -&amp;gt; Paste，把刚刚在 copy mode 选定的内容贴上&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、背景&quot;&gt;&lt;a href=&quot;#一、背景&quot; class=&quot;headerlink&quot; title=&quot;一、背景&quot;&gt;&lt;/a&gt;一、背景&lt;/h1&gt;&lt;p&gt;系统管理员经常需要SSH 或者telent 远程登录到Linux 服务器，经常运行一些需要很长时间才能完成的任务，比如系统备份、ftp 传输等等。通常情况下我们都是为每一个这样的任务开一个远程终端窗口，因为它们执行的时间太长了。必须等待它们执行完毕，在此期间不能关掉窗口或者断开连接，否则这个任务就会被杀掉，一切半途而废了。&lt;/p&gt;
+&lt;h1 id=&quot;二、简介&quot;&gt;&lt;a href=&quot;#二、简介&quot; class=&quot;headerlink&quot; title=&quot;二、简介&quot;&gt;&lt;/a&gt;二、简介&lt;/h1&gt;&lt;p&gt;GNU Screen是一款由GNU计划开发的用于命令行终端切换的自由软件。用户可以通过该软件同时连接多个本地或远程的命令行会话，并在其间自由切换。&lt;/p&gt;
+&lt;p&gt;GNU Screen可以看作是窗口管理器的命令行界面版本。它提供了统一的管理多个会话的界面和相应的功能。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="程序执行" scheme="http://yoursite.com/categories/%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下vim命令详解</title>
+    <link href="http://yoursite.com/2016/08/01/linux%E4%B8%8Bvim%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2016/08/01/linux下vim命令/</id>
+    <published>2016-07-31T16:00:00.000Z</published>
+    <updated>2016-08-03T06:03:43.000Z</updated>
+    
+    <content type="html">&lt;p&gt;高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：&lt;/p&gt;
+&lt;p&gt;:qx     开始记录宏，并将结果存入寄存器x&lt;br&gt;q     退出记录模式&lt;br&gt;@x     播放记录在x寄存器中的宏命令&lt;br&gt;稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模&lt;br&gt;式，然后输入@x对刚才记录下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次。这个在文本的批处理中是非常有用的。&lt;br&gt;同时编辑多个文件&lt;br&gt;在vim众多的插件中，有一个叫minibuffer的插件，就是下面所说的标签页功能了，可以支持同时编辑多个文件。&lt;br&gt;标签命令&lt;/p&gt;
+&lt;p&gt;:tabe fn     在一个新的标签页中编辑文件fn&lt;br&gt;gt     切换到下一个标签页&lt;br&gt;gT     切换到上一个标签页&lt;br&gt;:tabr     切换到第一个标签页&lt;br&gt;:tabl     切换到最后一个标签页&lt;br&gt;:tabm [N]     把当前tab移动到第N个tab之后&lt;br&gt;对，正如你所想象的那样，跟eclipse, ue等的标签页是一个意思！&lt;br&gt;窗口命令&lt;br&gt;ctrl+w s     水平分割窗口&lt;br&gt;ctrl+w w     切换窗口&lt;br&gt;ctrl+w q     退出当前窗口(由于同时有多个文件，此命令不会影响其他窗口)&lt;br&gt;ctrl+w v     垂直分割窗口&lt;br&gt;其他&lt;br&gt;vim在保存之前不会对文件做实际的修改，只是加载到缓冲区中，对文件的编辑其实是对缓冲区的编辑，直到:w时才会存入物理文件。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;:e file     把file加载到新的缓冲区中&lt;br&gt;:bn     跳转到下一个缓冲区&lt;br&gt;:bd     删除缓冲区(关闭文件)&lt;br&gt;:sp fn     分割窗口，并将fn加载到新的窗口中&lt;br&gt;退出编辑器&lt;/p&gt;
+&lt;p&gt;:w     将缓冲区写入文件，即保存修改&lt;br&gt;:wq     保存修改并退出&lt;br&gt;:x     保存修改并退出&lt;br&gt;:q     退出，如果对缓冲区进行过修改，则会提示&lt;br&gt;:q!     强制退出，放弃修改&lt;br&gt;查找替换&lt;br&gt;/pattern     向后搜索字符串pattern&lt;br&gt;?pattern     向前搜索字符串pattern&lt;br&gt;n     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)&lt;br&gt;N     上一个匹配(同上)&lt;br&gt;:%s/old/new/g     搜索整个文件，将所有的old替换为new&lt;br&gt;:%s/old/new/gc     搜索整个文件，将所有的old替换为new，每次都要你确认是否替换&lt;br&gt;复制粘贴&lt;br&gt;dd     删除光标所在行&lt;br&gt;dw     删除一个字(word)&lt;br&gt;x     删除当前字符&lt;br&gt;X     删除前一个字符&lt;br&gt;D     删除到行末&lt;br&gt;yy     复制一行，此命令前可跟数字，标识复制多行，如6yy，表示从当前行开始复制6行&lt;br&gt;yw     复制一个字&lt;br&gt;y$     复制到行末&lt;br&gt;p     粘贴粘贴板的内容到当前行的下面&lt;br&gt;P     粘贴粘贴板的内容到当前行的上面&lt;br&gt;]p     有缩进的粘贴，vim会自动调节代码的缩进&lt;br&gt;“a     将内容放入/存入a寄存器，可以支持多粘贴板&lt;br&gt;附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为”+p,注意此处的+不表示操作符，二十一个寄存器。&lt;br&gt;移动光标&lt;br&gt;在vim中移动光标跟其他的编辑器中有很大的区别，不过一旦学会了，就会飞速的在文本中移动了。&lt;/p&gt;
+&lt;p&gt;h,j,k,l     上，下，左，右&lt;br&gt;ctrl-f     上翻一页&lt;br&gt;ctrl-b     下翻一页&lt;br&gt;%     跳到与当前括号匹配的括号处，如当前在{，则跳转到与之匹配的}处&lt;br&gt;w     跳到下一个字首，按标点或单词分割&lt;br&gt;W     跳到下一个字首，长跳，如end-of-line被认为是一个字&lt;br&gt;e     跳到下一个字尾&lt;br&gt;E     跳到下一个字尾，长跳&lt;br&gt;b     跳到上一个字&lt;br&gt;B     跳到上一个字，长跳&lt;br&gt;0     跳至行首，不管有无缩进，就是跳到第0个字符&lt;br&gt;^     跳至行首的第一个字符&lt;br&gt;$     跳至行尾&lt;br&gt;gg     跳至文件的第一行&lt;br&gt;gd     跳至当前光标所在的变量的声明处&lt;br&gt;[N]G     跳到第N行，如0G，就等价于gg，100G就是第100行&lt;br&gt;fx     在当前行中找x字符，找到了就跳转至&lt;br&gt;;     重复上一个f命令，而不用重复的输入fx&lt;br&gt;tx     与fx类似，但是只是跳转到x的前一个字符处&lt;br&gt;Fx     跟fx的方向相反&lt;br&gt;),(     跳转到上/下一个语句&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查找光标所在处的单词，向下查找&lt;h1 id=&quot;查找光标所在处的单词，向上查找&quot;&gt;&lt;a href=&quot;#查找光标所在处的单词，向上查找&quot; class=&quot;headerlink&quot; title=&quot;查找光标所在处的单词，向上查找&quot;&gt;&lt;/a&gt;查找光标所在处的单词，向上查找&lt;/h1&gt;`.     跳转至上次编辑位置&lt;br&gt;在屏幕上移动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;H     移动光标到当前屏幕上最上边的一行&lt;br&gt;M     移动光标到当前屏幕上中间的一行&lt;br&gt;L     移动光标到当前屏幕上最下边的一行&lt;br&gt;书签&lt;br&gt;ma     把当前位置存成标签a&lt;br&gt;`a     跳转到标签a处&lt;br&gt;编辑&lt;br&gt;r     替换一个字符&lt;br&gt;J     将下一行和当前行连接为一行&lt;br&gt;cc     删除当前行并进入编辑模式&lt;br&gt;cw     删除当前字，并进入编辑模式&lt;br&gt;c$     擦除从当前位置至行末的内容，并进入编辑模式&lt;br&gt;s     删除当前字符并进入编辑模式&lt;br&gt;S     删除光标所在行并进入编辑模式&lt;br&gt;xp     交换当前字符和下一个字符&lt;br&gt;u     撤销&lt;br&gt;ctrl+r     重做&lt;br&gt;.     重复上一个编辑命令&lt;br&gt;~     切换大小写，当前字符&lt;br&gt;g~iw     切换当前字的大小写&lt;br&gt;gUiw     将当前字变成大写&lt;br&gt;guiw     将当前字变成小写&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;将当前行右移一个单位
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;lt;&amp;lt;     将当前行左移一个单位(一个tab符)&lt;br&gt;==     自动缩进当前行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;插入模式&lt;br&gt;i     从当前光标处进入插入模式&lt;br&gt;I     进入插入模式，并置光标于行首&lt;br&gt;a     追加模式，置光标于当前光标之后&lt;br&gt;A     追加模式，置光标于行末&lt;br&gt;o     在当前行之下新加一行，并进入插入模式&lt;br&gt;O     在当前行之上新加一行，并进入插入模式&lt;br&gt;Esc     退出插入模式&lt;br&gt;可视模式&lt;br&gt;标记文本&lt;br&gt;v     进入可视模式，单字符模式&lt;br&gt;V     进入可视模式，行模式&lt;br&gt;ctrl+v     进入可视模式，列模式，类似于UE的列模式&lt;br&gt;o     跳转光标到选中块的另一个端点&lt;br&gt;U     将选中块中的内容转成大写&lt;br&gt;O     跳转光标到块的另一个端点&lt;br&gt;aw     选中一个字&lt;br&gt;ab     选中括号中的所有内容，包括括号本身&lt;br&gt;aB     选中{}括号中的所有内容&lt;br&gt;ib     选中括号中的内容，不含括号&lt;br&gt;iB     选中{}中的内容，不含{}&lt;/p&gt;
+&lt;p&gt;对标记进行动作&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;块右移
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;lt;     块左移&lt;br&gt;y     复制块&lt;br&gt;d     删除块&lt;br&gt;~     切换块中内容的大小写&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：&lt;/p&gt;
+&lt;p&gt;:qx     开始记录宏，并将结果存入寄存器x&lt;br&gt;q     退出记录模式&lt;br&gt;@x     播放记录在x寄存器中的宏命令&lt;br&gt;稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模&lt;br&gt;式，然后输入@x对刚才记录下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次。这个在文本的批处理中是非常有用的。&lt;br&gt;同时编辑多个文件&lt;br&gt;在vim众多的插件中，有一个叫minibuffer的插件，就是下面所说的标签页功能了，可以支持同时编辑多个文件。&lt;br&gt;标签命令&lt;/p&gt;
+&lt;p&gt;:tabe fn     在一个新的标签页中编辑文件fn&lt;br&gt;gt     切换到下一个标签页&lt;br&gt;gT     切换到上一个标签页&lt;br&gt;:tabr     切换到第一个标签页&lt;br&gt;:tabl     切换到最后一个标签页&lt;br&gt;:tabm [N]     把当前tab移动到第N个tab之后&lt;br&gt;对，正如你所想象的那样，跟eclipse, ue等的标签页是一个意思！&lt;br&gt;窗口命令&lt;br&gt;ctrl+w s     水平分割窗口&lt;br&gt;ctrl+w w     切换窗口&lt;br&gt;ctrl+w q     退出当前窗口(由于同时有多个文件，此命令不会影响其他窗口)&lt;br&gt;ctrl+w v     垂直分割窗口&lt;br&gt;其他&lt;br&gt;vim在保存之前不会对文件做实际的修改，只是加载到缓冲区中，对文件的编辑其实是对缓冲区的编辑，直到:w时才会存入物理文件。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux命令" scheme="http://yoursite.com/categories/Linux%E5%91%BD%E4%BB%A4/"/>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+  </entry>
   
   <entry>
     <title>数据抽样问题(蓄水池抽样)</title>

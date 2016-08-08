@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -104,15 +104,16 @@
 
 
 
-<meta name="description" content="心之所向,四海归一">
-<meta property="og:type" content="website">
-<meta property="og:title" content=" John's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+<meta name="description" content="给定两个文件 a.txt 和 b.txt ，每行是一个记录（假设没有重复），要求输出两集合的交集、并集、差集，输出的结果只包括唯一项。交集定义为同时出现在两个文件中的记录项，并集定义为出现在任何一个文件中的记录项，差集(A-B)定义为出现在A中而且不出现在B中的记录，对称差集定义为只出现在一个文件中的记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用linux命令sort和uniq求两个文件的交集并集和补集">
+<meta property="og:url" content="http://yoursite.com/2016/08/05/利用linux命令sort和uniq求两个文件的交集并集和补集/index.html">
 <meta property="og:site_name" content=" John's Blog">
-<meta property="og:description" content="心之所向,四海归一">
+<meta property="og:description" content="给定两个文件 a.txt 和 b.txt ，每行是一个记录（假设没有重复），要求输出两集合的交集、并集、差集，输出的结果只包括唯一项。交集定义为同时出现在两个文件中的记录项，并集定义为出现在任何一个文件中的记录项，差集(A-B)定义为出现在A中而且不出现在B中的记录，对称差集定义为只出现在一个文件中的记录。">
+<meta property="og:updated_time" content="2016-08-08T03:39:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" John's Blog">
-<meta name="twitter:description" content="心之所向,四海归一">
+<meta name="twitter:title" content="利用linux命令sort和uniq求两个文件的交集并集和补集">
+<meta name="twitter:description" content="给定两个文件 a.txt 和 b.txt ，每行是一个记录（假设没有重复），要求输出两集合的交集、并集、差集，输出的结果只包括唯一项。交集定义为同时出现在两个文件中的记录项，并集定义为出现在任何一个文件中的记录项，差集(A-B)定义为出现在A中而且不出现在B中的记录，对称差集定义为只出现在一个文件中的记录。">
 
 
 
@@ -133,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/05/利用linux命令sort和uniq求两个文件的交集并集和补集/"/>
 
-  <title> 归档 |  John's Blog </title>
+  <title> 利用linux命令sort和uniq求两个文件的交集并集和补集 |  John's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +157,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,181 +255,151 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 14 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/05/利用标注语料生成决策weights/" itemprop="url">
-              
-                <span itemprop="name">利用标注语料生成决策weights</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-05T00:00:00+08:00"
-              content="2016-07-05" >
-          07-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/24/通过主动学习的方法进行自动语料标注/" itemprop="url">
-              
-                <span itemprop="name">通过主动学习的方法进行自动语料标注</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-24T00:00:00+08:00"
-              content="2016-06-24" >
-          06-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/19/pagerank算法的具体实现/" itemprop="url">
-              
-                <span itemprop="name">Pagerank算法的具体实现</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-19T00:00:00+08:00"
-              content="2016-06-19" >
-          06-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/15/单链表反转问题/" itemprop="url">
-              
-                <span itemprop="name">单链表反转问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-15T00:00:00+08:00"
-              content="2016-06-15" >
-          06-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-  </nav>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用linux命令sort和uniq求两个文件的交集并集和补集
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-05T00:00:00+08:00" content="2016-08-05">
+              2016-08-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux命令/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux命令</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/05/利用linux命令sort和uniq求两个文件的交集并集和补集/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/05/利用linux命令sort和uniq求两个文件的交集并集和补集/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
 
 
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>给定两个文件 a.txt 和 b.txt ，每行是一个记录（假设没有重复），要求输出两集合的交集、并集、差集，输出的结果只包括唯一项。交集定义为同时出现在两个文件中的记录项，并集定义为出现在任何一个文件中的记录项，差集(A-B)定义为出现在A中而且不出现在B中的记录，对称差集定义为只出现在一个文件中的记录。<br><a id="more"></a>S<br>假设 a.txt 包括 a, c, b 三行。假设 b.txt 包括 d, e, c, b 四行。</p>
+<p>交集，把两个文件放到一起排序，只输出次数多于一次的项：<br>$ sort a.txt b.txt | uniq -d<br>b<br>c</p>
+<p>并集，把两个文件放到一起排序，重复的项只算一次：<br>$ sort a.txt b.txt | uniq<br>a<br>b<br>c<br>d<br>e</p>
+<p>差集(A-B)，把B的元素重复2份和A的元素放到一起排序，只输出出现一次的项：<br>$ sort a.txt b.txt b.txt | uniq -u<br>a</p>
+<p>对称差，把两个文件放到一起排序，只输出出现一次的项：<br>$ sort a.txt b.txt | uniq -u<br>a<br>d<br>e</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/04/linux screen命令详解/" rel="next" title="linux screen命令详解">
+                <i class="fa fa-chevron-left"></i> linux screen命令详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -436,6 +407,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/05/利用linux命令sort和uniq求两个文件的交集并集和补集/"
+           data-title="利用linux命令sort和uniq求两个文件的交集并集和补集" data-url="http://yoursite.com/2016/08/05/利用linux命令sort和uniq求两个文件的交集并集和补集/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -455,8 +434,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/timg.png"
@@ -552,6 +540,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -646,11 +645,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   

@@ -278,6 +278,381 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/05/利用标注语料生成决策weights/" itemprop="url">
+                  利用标注语料生成决策weights
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T00:00:00+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/句子主干提取/" itemprop="url" rel="index">
+                    <span itemprop="name">句子主干提取</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/05/利用标注语料生成决策weights/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/利用标注语料生成决策weights/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1、之前两周利用主动学习的方式训练集<br>2、标注数据分离一小部分作为测试集利用LR分类器调参。<br>3、利用最有参数训练标注语料生成特征权重weights。<br>3、使用weights获得主干提取demo。<br>周一的时候做好了主干提取的Demo初始版本，经过测试效果不太理想<br>分析原因：训练集过少、覆盖面过窄、稳定性不高<br>这周的主要工作：<br>1、提取多种语料库中的资源做人工语料标注<br>2、增加部分特征，扩大特征维度<br>3、特征结构统一化，例如某个词的特征用词典表示，预定义好所有的key。暂时定义如下：</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/05/利用标注语料生成决策weights/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/24/通过主动学习的方法进行自动语料标注/" itemprop="url">
+                  通过主动学习的方法进行自动语料标注
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-24T00:00:00+08:00" content="2016-06-24">
+              2016-06-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/句子主干提取/" itemprop="url" rel="index">
+                    <span itemprop="name">句子主干提取</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/24/通过主动学习的方法进行自动语料标注/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/24/通过主动学习的方法进行自动语料标注/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>   目前正在做句子主干提取方面的工作，主要方法是构建二分类器，提取句子分词之后每个词的特征来决定分词的取舍。由于需要标注大量的训练语料，采用人工的方法费时费力，于是采用主动学习的方法实现语料标注，我实现的步骤如下：</p>
+<ul>
+<li>先对语料实现人工标注一部分</li>
+<li>使用机器学习训练模型如SVM、LR对已经标注的语料训练，把为标注的语料作为测试集</li>
+<li>为测试机样本产生标签及置信度（即标签的准确性的概率值）</li>
+<li>通过观察为置信度设定一个阈值，当样本中的每个分词都满足这个阈值时，我们把这个自动标注好的测试样本加入到训练集中，在测试样本中取出这个样本</li>
+<li>重复2-4步，直到剩余的测试样本中没有完全满足阈值的</li>
+<li><p>输出剩余的测试样本</p>
+<p> 刚开始我觉得这种方法非常好，经过测试，大概20次迭代之后大概4/5的样本已经标注好了<br>经过导师指导发现这种方法并不可靠，因为你新添加的训练集也是之前训练集产生的，反复迭代只会过拟合。我们应该设定一个比较低的阈值，找到测试集中非常不确定的测试样本（所有这些测试样本的置信度很低），通常来说这些样本是最有“价值”的样本，我们对这一小部分采用人工标注，并放入到训练集中，反复几次。</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/19/pagerank算法的具体实现/" itemprop="url">
+                  Pagerank算法的具体实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-19T00:00:00+08:00" content="2016-06-19">
+              2016-06-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/实体链接/" itemprop="url" rel="index">
+                    <span itemprop="name">实体链接</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/19/pagerank算法的具体实现/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/19/pagerank算法的具体实现/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>PageRank对网页排名的算法，曾是Google发家致富的法宝。以前虽然有实验过，但理解还是不透彻，这几天又看了一下，这里总结一下PageRank算法的基本原理。</p>
+<h3 id="1、什么是pagerank"><a href="#1、什么是pagerank" class="headerlink" title="1、什么是pagerank"></a>1、什么是pagerank</h3><p>PageRank的Page可是认为是网页，表示网页排名，也可以认为是Larry Page(google 产品经理)，因为他是这个算法的发明者之一，还是google CEO（^_^）。PageRank算法计算每一个网页的PageRank值，然后根据这个值的大小对网页的重要性进行排序。它的思想是模拟一个悠闲的上网者，上网者首先随机选择一个网页打开，然后在这个网页上呆了几分钟后，跳转到该网页所指向的链接，这样无所事事、漫无目的地在网页上跳来跳去，PageRank就是估计这个悠闲的上网者分布在各个网页上的概率。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/19/pagerank算法的具体实现/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/15/单链表反转问题/" itemprop="url">
                   单链表反转问题
                 </a>
@@ -425,7 +800,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -433,7 +808,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -442,7 +817,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
