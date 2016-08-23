@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="最大熵," />
 
 
 
@@ -104,15 +104,18 @@
 
 
 
-<meta name="description" content="心之所向,四海归一">
-<meta property="og:type" content="website">
+<meta name="description" content="1、似然函数概率和似然的区别：概率是已知参数的条件下预测未知事情发生的概率，而似然性是已知事情发生的前提下估计模型的参数。我们通常都是将似然函数取最大值时的参数作为模型的参数。那么为何要取似然函数取最大值的参数作为模型的参数？我们基于这样的假设：对于已经发生的事情，在同样条件下再次发生的概率就会很大。假如模型的参数固定，然后用这个参数固定的模型来预测已经发生的事情，这时我们得到的概率不一定很大，并">
+<meta property="og:type" content="article">
 <meta property="og:title" content=" John's Blog">
-<meta property="og:url" content="http://yoursite.com/categories/C-C/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/08/11/最大熵模型及推导/index.html">
 <meta property="og:site_name" content=" John's Blog">
-<meta property="og:description" content="心之所向,四海归一">
+<meta property="og:description" content="1、似然函数概率和似然的区别：概率是已知参数的条件下预测未知事情发生的概率，而似然性是已知事情发生的前提下估计模型的参数。我们通常都是将似然函数取最大值时的参数作为模型的参数。那么为何要取似然函数取最大值的参数作为模型的参数？我们基于这样的假设：对于已经发生的事情，在同样条件下再次发生的概率就会很大。假如模型的参数固定，然后用这个参数固定的模型来预测已经发生的事情，这时我们得到的概率不一定很大，并">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/680781/201508/072333269242881.png">
+<meta property="og:updated_time" content="2016-08-15T02:37:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" John's Blog">
-<meta name="twitter:description" content="心之所向,四海归一">
+<meta name="twitter:description" content="1、似然函数概率和似然的区别：概率是已知参数的条件下预测未知事情发生的概率，而似然性是已知事情发生的前提下估计模型的参数。我们通常都是将似然函数取最大值时的参数作为模型的参数。那么为何要取似然函数取最大值的参数作为模型的参数？我们基于这样的假设：对于已经发生的事情，在同样条件下再次发生的概率就会很大。假如模型的参数固定，然后用这个参数固定的模型来预测已经发生的事情，这时我们得到的概率不一定很大，并">
+<meta name="twitter:image" content="http://images0.cnblogs.com/blog2015/680781/201508/072333269242881.png">
 
 
 
@@ -133,9 +136,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/C-C/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/11/最大熵模型及推导/"/>
 
-  <title> 分类: C/C++ |  John's Blog </title>
+  <title>  |  John's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +159,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,47 +257,148 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        C/C++
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-11T00:00:00+08:00" content="2016-08-11">
+              2016-08-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习模型/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习模型</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/11/最大熵模型及推导/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/最大熵模型及推导/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="1、似然函数"><a href="#1、似然函数" class="headerlink" title="1、似然函数"></a>1、似然函数</h1><p>概率和似然的区别：概率是已知参数的条件下预测未知事情发生的概率，而似然性是已知事情发生的前提下估计模型的参数。我们通常都是将似然函数取最大值时的参数作为模型的参数。<br>那么为何要取似然函数取最大值的参数作为模型的参数？我们基于这样的假设：对于已经发生的事情，在同样条件下再次发生的概率就会很大。假如模型的参数固定，然后用这个参数固定的模型来预测已经发生的事情，这时我们得到的概率不一定很大，并且不同的参数得到概率是不一样的，但是事实上这个事情已经发生了，也就是说发生这个事情的概率为1，此时我们就需要让模型对这个事情的预测概率越大越好。即概率越大其发生的可能性越大，也就越符合已经发生的事情！（写得好啰嗦！）<br>最大似然估计也是统计学中经验风险最小化的例子。计算极大似然估计的方法：首先写出似然函数，对似然函数取对数并整理，然后求导数，最后解似然方程。其中似然函数常用概率密度函数。<br><a id="more"></a></p>
+<h1 id="2、预分析"><a href="#2、预分析" class="headerlink" title="2、预分析"></a>2、预分析</h1><p>假设分类模型为条件概率分布P(y|x)，训练集为T={(x1,y1),(x2,y2),…,(xn,yn)}。则联合分布P(x,y)的经验分布和边缘分布P(x)的经验分布为：<br><img src="http://images0.cnblogs.com/blog2015/680781/201508/072333269242881.png" alt="image"></p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/07/09/C:C++中计算程序运行时间的方法/" itemprop="url">
-              
-                <span itemprop="name">C/C++中计算程序运行时间的方法</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-09T00:00:00+08:00"
-              content="2016-07-09" >
-          07-09
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/最大熵/" rel="tag">#最大熵</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/05/利用linux命令sort和uniq求两个文件的交集并集和补集/" rel="next" title="利用linux命令sort和uniq求两个文件的交集并集和补集">
+                <i class="fa fa-chevron-left"></i> 利用linux命令sort和uniq求两个文件的交集并集和补集
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -302,6 +406,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/11/最大熵模型及推导/"
+           data-title="" data-url="http://yoursite.com/2016/08/11/最大熵模型及推导/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -321,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/timg.png"
@@ -418,6 +539,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、似然函数"><span class="nav-number">1.</span> <span class="nav-text">1、似然函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、预分析"><span class="nav-number">2.</span> <span class="nav-text">2、预分析</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -512,6 +644,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

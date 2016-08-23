@@ -278,6 +278,129 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/09/C:C++中计算程序运行时间的方法/" itemprop="url">
+                  C/C++中计算程序运行时间的方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-09T00:00:00+08:00" content="2016-07-09">
+              2016-07-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C/C++</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/09/C:C++中计算程序运行时间的方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/C:C++中计算程序运行时间的方法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近写完程序在公司需要测试每个句子输入到返回结果的运行时间，刚开始使用clock()函数是精确到毫秒，但是经过测试然并卵，总是返回0ms，程序运行时间太短，最后总结一下：</p>
+<h3 id="精确到毫秒ms"><a href="#精确到毫秒ms" class="headerlink" title="精确到毫秒ms"></a>精确到毫秒ms</h3><p>clock()计算的是CPU执行耗时，注意是CPU！如果有多个核并行，最后的结果是每个CPU上运算时间的总和！想要精确到毫秒，可以double(end -begin)*1000/CLOCKS_PER_SEC<br>一般来说，只要求精确到秒的话，time是很好使的<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/09/C:C++中计算程序运行时间的方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/05/利用标注语料生成决策weights/" itemprop="url">
                   利用标注语料生成决策weights
                 </a>
@@ -800,7 +923,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -808,7 +931,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -817,7 +940,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
